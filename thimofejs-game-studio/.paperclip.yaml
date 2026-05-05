@@ -6,46 +6,66 @@ agents:
       type: claude_local
       config:
         model: claude-opus-4-7
+
   technical-director:
     adapter:
       type: claude_local
       config:
         model: claude-opus-4-7
+
   producer:
     adapter:
       type: claude_local
       config:
         model: claude-opus-4-7
+
   trend-scout:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    inputs:
+      env:
+        REDDIT_CLIENT_ID:
+          kind: secret
+          requirement: required
+        REDDIT_CLIENT_SECRET:
+          kind: secret
+          requirement: required
+        YOUTUBE_API_KEY:
+          kind: secret
+          requirement: required
+
   strategy-agent:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   game-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   lead-luau-programmer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   roblox-studio-builder:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   tos-guard:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   deploy-engineer:
     adapter:
       type: claude_local
@@ -59,6 +79,7 @@ agents:
         ROBLOX_UNIVERSE_ID:
           kind: secret
           requirement: required
+
   kpi-tracker:
     adapter:
       type: claude_local
@@ -69,61 +90,73 @@ agents:
         ROBLOX_API_KEY:
           kind: secret
           requirement: required
+
   learning-agent:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   luau-programmer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   network-programmer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   ui-programmer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   economy-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   asset-specialist:
     adapter:
       type: claude_local
       config:
         model: claude-haiku-4-5-20251001
+
   obby-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   world-builder:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   performance-analyst:
     adapter:
       type: claude_local
       config:
         model: claude-haiku-4-5-20251001
+
   qa-lead:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+
   qa-tester:
     adapter:
       type: claude_local
       config:
         model: claude-haiku-4-5-20251001
+
   devops-engineer:
     adapter:
       type: claude_local
@@ -137,36 +170,9 @@ agents:
         ROBLOX_API_KEY:
           kind: secret
           requirement: optional
+
   community-manager:
     adapter:
       type: claude_local
       config:
         model: claude-haiku-4-5-20251001
-
-routines:
-  pipeline-cycle:
-    agent: producer
-    triggers:
-      - kind: schedule
-        cron: "0 8 * * 1"
-        timezone: UTC
-    concurrencyPolicy: skip_if_active
-    catchUpPolicy: skip_missed
-
-  daily-kpi-check:
-    agent: kpi-tracker
-    triggers:
-      - kind: schedule
-        cron: "0 9 * * *"
-        timezone: UTC
-    concurrencyPolicy: skip_if_active
-    catchUpPolicy: skip_missed
-
-  heartbeat:
-    agent: ceo
-    triggers:
-      - kind: schedule
-        cron: "0 6 * * *"
-        timezone: UTC
-    concurrencyPolicy: skip_if_active
-    catchUpPolicy: skip_missed
