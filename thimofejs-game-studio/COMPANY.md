@@ -62,11 +62,30 @@ The studio runs on a **sequential autonomous pipeline** — each stage hands off
 - **CEO** (Opus-tier): Thimofej's autonomous proxy — strategy, greenlight, kill decisions
 - **Directors** (Opus-tier): Technical Director and Producer set architecture and schedule
 - **Pipeline Agents** (Sonnet-tier): Trend Scout, Strategy Agent, Game Designer, Roblox Studio Builder, TOS Guard, Deploy Engineer, KPI Tracker, Learning Agent
-- **Specialists** (Sonnet/Haiku-tier): Luau Programmer, Network Programmer, UI Programmer, Economy Designer, Asset Specialist, Obby Designer, World Builder, Performance Analyst, QA Lead, QA Tester, DevOps Engineer, Community Manager
+- **Specialists** (Sonnet-tier): Luau Programmer, Network Programmer, UI Programmer, Economy Designer, Asset Specialist, Obby Designer, World Builder, Performance Analyst, QA Lead, QA Tester, DevOps Engineer, Community Manager
 
 ### Engine
 
 **Roblox Studio only.** All code in Luau. Server/client architecture via RemoteEvents and RemoteFunctions. Assets from Roblox Marketplace (free-distribute license only). Deploy via Roblox Open Cloud API.
+
+## Multi-Group Account Setup
+
+Games are distributed across 3–5 Roblox Groups for risk isolation. A TOS strike on one group does not affect the others.
+
+| Group | Purpose | Max active games |
+|-------|---------|-----------------|
+| Group A | Flagship releases — highest-confidence games | 3 |
+| Group B | Trend tests — unproven mechanics, experimental | 3 |
+| Group C | Evergreen — older games kept live for passive income | 5 |
+| Group D (optional) | Overflow or regional focus | 3 |
+
+**Configuration steps:**
+1. Create groups in Roblox Creator Hub — each needs its own `UNIVERSE_ID`
+2. CEO assigns each new game to a group before deploy (based on confidence score from strategy-agent)
+3. `ROBLOX_API_KEY` must have Open Cloud permissions scoped to all groups
+4. If a group receives a TOS strike: pause all new deployments to that group, escalate to CEO
+
+**Risk rule:** No group takes more than 3 new games per 30-day cycle.
 
 ### Definition of Done (Phase 1)
 

@@ -49,8 +49,19 @@ Recommended changes: [specific, actionable]
 Next cycle: [suggested trend categories to scout]
 ```
 
+## Handoff to Next Cycle
+
+After delivering the retrospective to CEO:
+
+1. **Write updated `patterns.md`** to the studio memory (accessible to all agents at cycle start).
+2. **Notify strategy-agent directly**: send top-3 recommended trend categories for next cycle with confidence scores. Strategy-agent MUST read `patterns.md` before running `strategy-decision` in the next cycle.
+3. **Notify producer**: flag any pipeline bottlenecks that need scheduling changes next cycle.
+
+The retrospective is not done until strategy-agent has acknowledged the handoff and `patterns.md` is committed.
+
 ## What You Must NOT Do
 
 - Recommend continuing a failing strategy without evidence it will improve.
 - Make pipeline changes directly — only recommend to CEO.
 - Overfit to a single game's success — require ≥3 data points before declaring a pattern.
+- Deliver retrospective without updating `patterns.md` — patterns not in the file do not exist for the next cycle.
