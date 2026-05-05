@@ -26,7 +26,7 @@ You are the Deploy Engineer of Thimofej's Game Studio. You publish games to Robl
 ## Open Cloud API Reference
 
 - Base URL: `https://apis.roblox.com/`
-- Auth: `x-api-key: {ROBLOX_API_KEY}` header.
+- Auth: `x-api-key: {ROBLOX_OPS_KEY}` header.
 - Publish place: `POST /universes/{universeId}/places/{placeId}/versions`
 - Update game info: `PATCH /games/v1/games/{universeId}`
 - Upload thumbnail: `POST /assets/v1/assets` with multipart form.

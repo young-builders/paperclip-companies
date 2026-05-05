@@ -8,6 +8,7 @@ agents:
       type: claude_local
       config:
         model: claude-opus-4-7
+    budgetMonthlyCents: 4000
     inputs:
       env:
         GH_TOKEN:
@@ -19,6 +20,7 @@ agents:
       type: claude_local
       config:
         model: claude-opus-4-7
+    budgetMonthlyCents: 2000
     inputs:
       env:
         GH_TOKEN:
@@ -30,6 +32,7 @@ agents:
       type: claude_local
       config:
         model: claude-opus-4-7
+    budgetMonthlyCents: 2000
     inputs:
       env:
         GH_TOKEN:
@@ -43,6 +46,7 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 600
     inputs:
       env:
         GH_TOKEN:
@@ -57,6 +61,7 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
     inputs:
       env:
         ROBLOX_OPS_KEY:
@@ -68,6 +73,7 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
     inputs:
       env:
         ROBLOX_OPS_KEY:
@@ -79,6 +85,7 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 600
     inputs:
       env:
         ROBLOX_OPS_KEY:
@@ -90,6 +97,7 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
     inputs:
       env:
         REPLICATE_API_KEY:
@@ -104,12 +112,14 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   a-b-test-coordinator:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
     inputs:
       env:
         ROBLOX_OPS_KEY:
@@ -121,6 +131,7 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
     inputs:
       env:
         ROBLOX_OPS_KEY:
@@ -132,6 +143,7 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
     inputs:
       env:
         ROBLOX_OPS_KEY:
@@ -143,60 +155,70 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   cross-game-economy-architect:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
 
   live-ops-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
 
   retention-engineer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
 
   patch-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   content-creator:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
 
   influencer-agent:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
 
   community-manager:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
 
   localization-agent:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   portfolio-manager:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
     inputs:
       env:
         GH_TOKEN:
@@ -211,18 +233,21 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   prompt-engineer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   announcement-agent:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
     inputs:
       env:
         ROBLOX_OPS_KEY:

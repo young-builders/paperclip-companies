@@ -18,7 +18,7 @@ Finds viral Roblox game ideas. Scans trends, analyzes competitors, builds player
 
 ## Issue Format
 
-Title: `[idea] <game-title-concept>`
+Title: `Game Idea: <Concept Name>`
 
 Body:
 

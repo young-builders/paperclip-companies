@@ -82,7 +82,7 @@ Games are distributed across 3–5 Roblox Groups for risk isolation. A TOS strik
 **Configuration steps:**
 1. Create groups in Roblox Creator Hub — each needs its own `UNIVERSE_ID`
 2. CEO assigns each new game to a group before deploy (based on confidence score from strategy-agent)
-3. `ROBLOX_API_KEY` must have Open Cloud permissions scoped to all groups
+3. `ROBLOX_OPS_KEY` must have Open Cloud permissions scoped to all groups
 4. If a group receives a TOS strike: pause all new deployments to that group, escalate to CEO
 
 **Risk rule:** No group takes more than 3 new games per 30-day cycle.

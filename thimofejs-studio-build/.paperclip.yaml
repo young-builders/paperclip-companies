@@ -6,6 +6,7 @@ agents:
       type: claude_local
       config:
         model: claude-opus-4-7
+    budgetMonthlyCents: 5000
     inputs:
       env:
         GH_TOKEN:
@@ -17,30 +18,35 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   viral-mechanic-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   map-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   world-builder:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   lead-luau-programmer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
     inputs:
       env:
         GH_TOKEN:
@@ -52,30 +58,35 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 800
 
   network-programmer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 600
 
   ui-programmer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   ui-ux-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
 
   audio-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
     inputs:
       env:
         ROBLOX_BUILD_KEY:
@@ -87,6 +98,7 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
     inputs:
       env:
         ROBLOX_BUILD_KEY:
@@ -98,21 +110,25 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
 
   onboarding-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   data-architect:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
 
   economy-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400

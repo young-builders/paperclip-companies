@@ -6,30 +6,37 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
-    secrets:
-      - name: GH_TOKEN
-        required: true
+    budgetMonthlyCents: 1000
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: required
 
   qa-tester:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 600
 
   performance-analyst:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
 
   anti-exploit-engineer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
 
   system-auditor:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 400
