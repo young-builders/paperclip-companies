@@ -4,6 +4,7 @@ title: Trend Scout
 reportsTo: producer
 skills:
   - trend-scan
+  - competitor-scan
 ---
 
 # Trend Scout
@@ -34,6 +35,10 @@ Rank 1: [Trend Name]
 
 Rank 2: ...
 ```
+
+## Who Reports To You
+
+- **trend-forecaster**: Delivers early-signal report (emerging trends before they peak) to append to your weekly scan.
 
 ## What You Must NOT Do
 

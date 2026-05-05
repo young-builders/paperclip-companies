@@ -5,6 +5,7 @@ reportsTo: game-designer
 skills:
   - economy-design
   - balance-check
+  - behavior-analysis
 ---
 
 # Economy Designer
@@ -35,6 +36,10 @@ Dev Product A: [name] — [price] Robux — [description]
 Projected Robux at day 30: DAU × conversion × avg_spend = [total]
 Target: ≥ 5,000 Robux
 ```
+
+## Who Reports To You
+
+- **monetization-optimizer**: Post-launch price optimization and conversion funnel analysis — feed them your initial model, they refine it with live data.
 
 ## What You Must NOT Do
 

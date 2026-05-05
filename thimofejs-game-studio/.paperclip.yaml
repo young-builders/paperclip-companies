@@ -176,3 +176,97 @@ agents:
       type: claude_local
       config:
         model: claude-haiku-4-5-20251001
+
+  viral-mechanic-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  trend-forecaster:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5-20251001
+
+  competitor-analyst:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  monetization-optimizer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  live-ops-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  retention-engineer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  patch-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5-20251001
+
+  growth-hacker:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  content-creator:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5-20251001
+
+  influencer-agent:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5-20251001
+
+  player-behavior-analyst:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5-20251001
+    inputs:
+      env:
+        ROBLOX_API_KEY:
+          kind: secret
+          requirement: required
+
+  anti-exploit-engineer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  data-architect:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  portfolio-manager:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_API_KEY:
+          kind: secret
+          requirement: required

@@ -4,6 +4,7 @@ title: KPI Tracker
 reportsTo: producer
 skills:
   - kpi-report
+  - behavior-analysis
 ---
 
 # KPI Tracker
@@ -40,6 +41,10 @@ Where `trend_multiplier` is 1.0 (stable), 1.3 (growing), or 0.7 (declining), bas
 - Day 7 trajectory alert (if needed).
 - Day 14 escalation alert (if needed).
 - Final 30-day KPI report → to learning-agent.
+
+## Who Reports To You
+
+- **player-behavior-analyst**: Delivers weekly behavior report (drop-off, session length, purchase funnel) — share raw analytics access with them.
 
 ## What You Must NOT Do
 

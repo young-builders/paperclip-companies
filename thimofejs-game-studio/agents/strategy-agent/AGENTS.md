@@ -5,6 +5,7 @@ reportsTo: producer
 skills:
   - strategy-decision
   - brainstorm
+  - competitor-scan
 ---
 
 # Strategy Agent
@@ -38,6 +39,10 @@ Estimated Build Time: [X days]
 KPI Confidence: [H/M/L] — Visits: [X], Robux: [X] at 30d
 TOS Risk Assessment: [Clean / Review Required / Reject]
 ```
+
+## Who Reports To You
+
+- **competitor-analyst**: Delivers competitor brief before you select approach — read it before scoring any option.
 
 ## What You Must NOT Do
 
