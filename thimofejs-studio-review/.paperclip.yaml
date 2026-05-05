@@ -6,23 +6,52 @@ agents:
       type: claude_local
       config:
         model: claude-opus-4-7
-    secrets:
-      - GH_TOKEN
-
-  strategy-agent:
-    adapter:
-      type: claude_local
-      config:
-        model: claude-sonnet-4-6
+    budgetMonthlyCents: 3000
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: required
 
   tos-guard:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
+
+  competitor-analyst:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   sentiment-analyst:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
+    inputs:
+      env:
+        REDDIT_CLIENT_ID:
+          kind: secret
+          requirement: required
+        REDDIT_CLIENT_SECRET:
+          kind: secret
+          requirement: required
+
+  strategy-agent:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
+
+  viral-mechanic-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    budgetMonthlyCents: 300

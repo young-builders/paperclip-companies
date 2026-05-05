@@ -1,22 +1,48 @@
-# thimofejs-studio-review
+---
+name: thimofejs-studio-review
+description: Idea gate for Thimofej's Game Studio — every game concept passes through here before a single line of Luau is written
+slug: thimofejs-studio-review
+schema: agentcompanies/v1
+version: 1.1.0
+---
 
-Gatekeeper. Reviews every idea before it reaches build. Nothing passes without approval.
+# Studio Review — Idea Gate
+
+Six agents evaluate every pending game idea before it reaches the build pipeline. Nothing enters build without a GO from the Review Director.
 
 ## Pipeline Role
 
 **Input:** Issues with label `idea/pending` in `young-builders/pipeline`
 **Output:**
-- Approved → relabels Issue to `idea/approved`, posts verdict as comment
-- Rejected → relabels Issue to `idea/rejected`, posts rejection reason as comment
+- GO → relabels issue to `idea/approved`, posts full verdict comment
+- NO-GO → relabels issue to `idea/rejected`, posts rejection reason with revision suggestions
 
 ## Workflow
 
-1. `tos-guard` checks idea against Roblox ToS — hard block if violation
-2. `sentiment-analyst` checks public sentiment around this game type
-3. `strategy-agent` evaluates strategic fit: market timing, differentiation, effort vs. reward
-4. `review-director` makes final GO / NO-GO decision, posts verdict comment, relabels Issue
+```
+idea/pending issue
+       │
+       ├─── [wave 1 — parallel] ──────────────────────────┐
+       │    tos-guard           → CLEAR / WARN / BLOCK     │
+       │    competitor-analyst  → clone risk + gap         │
+       │    sentiment-analyst   → POSITIVE/NEUTRAL/NEG     │
+       │                                                   │
+       ├─── [hard veto check] ─────────────────────────────┤
+       │    BLOCK or clone_risk > 0.70 → immediate NO-GO   │
+       │                                                   │
+       └─── [wave 2 — parallel, only if no hard veto] ────►│
+            strategy-agent         → 30-point scorecard    │
+            viral-mechanic-designer → viral hook score     │
+                                                           │
+                             review-director synthesizes ◄─┘
+                             → GO or NO-GO verdict posted
+```
 
-## Verdict Comment Format (posted on the Issue)
+**Hard vetoes (immediate NO-GO, cannot be overridden):**
+- `tos-guard` returns BLOCK
+- `competitor-analyst` returns `clone_risk_score > 0.70`
+
+## Verdict Comment Format
 
 ```markdown
 ## Review Verdict
@@ -25,28 +51,41 @@ Gatekeeper. Reviews every idea before it reaches build. Nothing passes without a
 **Date:** YYYY-MM-DD
 **Reviewer:** review-director
 
+### Sub-Agent Summary
+- **tos-guard:** CLEAR / WARN / BLOCK — <finding>
+- **competitor-analyst:** <score> clone risk — <top gap found>
+- **sentiment-analyst:** POSITIVE / NEUTRAL / NEGATIVE — <signal>
+- **strategy-agent:** <total>/30 (PASS/FAIL) — <key factor>
+- **viral-mechanic-designer:** HOOK FOUND / NO HOOK — <hook or gap>
+
 ### Reasons
 - ...
 
 ### Conditions (if GO)
-- Any constraints for build team
+- ...
 ```
 
 ## Agents
 
 | Agent | Role | Model |
 |-------|------|-------|
-| review-director | Final GO/NO-GO authority | Opus |
-| strategy-agent | Strategic fit evaluation | Sonnet |
-| tos-guard | Roblox ToS compliance check | Sonnet |
-| sentiment-analyst | Public sentiment check | Sonnet |
+| review-director | Final GO/NO-GO authority, orchestrates all sub-agents | Opus |
+| tos-guard | Roblox ToS compliance — 5 hard checks | Sonnet |
+| competitor-analyst | Clone risk score (0–1.0) + mechanic gap | Sonnet |
+| sentiment-analyst | r/roblox genre fatigue scan — POSITIVE/NEUTRAL/NEGATIVE | Sonnet |
+| strategy-agent | 30-point scorecard (Trend / Differentiation / Feasibility) | Sonnet |
+| viral-mechanic-designer | Viral hook assessment — does idea have a TikTok moment? | Sonnet |
 
 ## Rules
 
-- `tos-guard` veto = automatic NO-GO, no override
-- `review-director` is the only agent that relabels Issues and posts the verdict comment
-- Rejected ideas get a full written reason as a comment — no silent drops
+- `tos-guard` BLOCK = unconditional NO-GO, no override
+- `competitor-analyst` clone_risk_score > 0.70 = unconditional NO-GO
+- `review-director` is the only agent that relabels issues and posts the verdict comment
+- All wave-1 reports must arrive before wave-2 agents are dispatched
+- All 5 sub-agent reports must be present before verdict is rendered (unless a hard veto ends early)
+- Rejected ideas get full written reasons + revision suggestions — no silent drops
 
 ## Secrets Required
 
-- `GH_TOKEN` — GitHub token (repo + issues scope) for reading and relabeling Issues in young-builders/pipeline
+- `GH_TOKEN` — GitHub token (repo + issues scope) for `young-builders/pipeline`
+- `REDDIT_CLIENT_ID` / `REDDIT_CLIENT_SECRET` — for sentiment-analyst's r/roblox scanning
