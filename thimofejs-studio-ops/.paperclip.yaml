@@ -1,0 +1,186 @@
+schema: paperclip/v1
+
+# ── OPUS (executive layer) ───────────────────────────────────────────────────
+
+agents:
+  ceo:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-4-7
+
+  producer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-4-7
+
+  learning-agent:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-4-7
+
+# ── SONNET (operations) ──────────────────────────────────────────────────────
+
+  deploy-engineer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_API_KEY:
+          kind: secret
+          requirement: required
+        ROBLOX_UNIVERSE_ID:
+          kind: secret
+          requirement: required
+
+  devops-engineer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_API_KEY:
+          kind: secret
+          requirement: optional
+
+  kpi-tracker:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_API_KEY:
+          kind: secret
+          requirement: required
+
+  player-behavior-analyst:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_API_KEY:
+          kind: secret
+          requirement: required
+
+  thumbnail-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    inputs:
+      env:
+        REPLICATE_API_KEY:
+          kind: secret
+          requirement: required
+        ROBLOX_API_KEY:
+          kind: secret
+          requirement: required
+
+  growth-hacker:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  a-b-test-coordinator:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  monetization-optimizer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  vip-server-specialist:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  premium-benefits-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  cross-game-economy-architect:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  live-ops-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  retention-engineer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  patch-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  content-creator:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  influencer-agent:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  community-manager:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  localization-agent:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  portfolio-manager:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_API_KEY:
+          kind: secret
+          requirement: required
+
+  memory-manager:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  prompt-engineer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6

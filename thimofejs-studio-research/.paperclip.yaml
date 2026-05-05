@@ -1,0 +1,49 @@
+schema: paperclip/v1
+
+agents:
+  research-lead:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  trend-scout:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    inputs:
+      env:
+        REDDIT_CLIENT_ID:
+          kind: secret
+          requirement: required
+        REDDIT_CLIENT_SECRET:
+          kind: secret
+          requirement: required
+        YOUTUBE_API_KEY:
+          kind: secret
+          requirement: required
+
+  trend-forecaster:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  market-researcher:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  competitor-analyst:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  player-persona-builder:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6

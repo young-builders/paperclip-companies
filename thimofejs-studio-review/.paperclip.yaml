@@ -1,0 +1,26 @@
+schema: paperclip/v1
+
+agents:
+  review-director:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-4-7
+
+  strategy-agent:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  tos-guard:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  sentiment-analyst:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6

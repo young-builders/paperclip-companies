@@ -1,0 +1,98 @@
+schema: paperclip/v1
+
+agents:
+  technical-director:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-4-7
+
+  game-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  viral-mechanic-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  map-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  world-builder:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  lead-luau-programmer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  luau-programmer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  network-programmer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  ui-programmer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  ui-ux-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  audio-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  asset-specialist:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  roblox-studio-builder:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  onboarding-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  data-architect:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  economy-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6

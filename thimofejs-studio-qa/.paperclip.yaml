@@ -1,0 +1,32 @@
+schema: paperclip/v1
+
+agents:
+  qa-lead:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  qa-tester:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  performance-analyst:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  anti-exploit-engineer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+
+  system-auditor:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
