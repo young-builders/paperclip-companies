@@ -8,24 +8,28 @@ agents:
       type: claude_local
       config:
         model: claude-opus-4-7
+    budgetMonthlyCents: 5000
 
   technical-director:
     adapter:
       type: claude_local
       config:
         model: claude-opus-4-7
+    budgetMonthlyCents: 3000
 
   producer:
     adapter:
       type: claude_local
       config:
         model: claude-opus-4-7
+    budgetMonthlyCents: 5000
 
   learning-agent:
     adapter:
       type: claude_local
       config:
         model: claude-opus-4-7
+    budgetMonthlyCents: 3000
 
 # ── SONNET (all other agents — no Haiku anywhere) ───────────────────────────
 
@@ -34,6 +38,7 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
     inputs:
       env:
         REDDIT_CLIENT_ID:
@@ -51,102 +56,119 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   strategy-agent:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
 
   competitor-analyst:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   market-researcher:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   game-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
 
   viral-mechanic-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   onboarding-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   ui-ux-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   audio-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   lead-luau-programmer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
 
   luau-programmer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
 
   network-programmer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
 
   ui-programmer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
 
   anti-exploit-engineer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   data-architect:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   performance-analyst:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   devops-engineer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
     inputs:
       env:
         GH_TOKEN:
@@ -161,66 +183,77 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 2000
 
   obby-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
 
   world-builder:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
 
   asset-specialist:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   economy-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   monetization-optimizer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   vip-server-specialist:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   premium-benefits-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   cross-game-economy-architect:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   tos-guard:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
 
   deploy-engineer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
     inputs:
       env:
         ROBLOX_API_KEY:
@@ -235,6 +268,7 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 2000
     inputs:
       env:
         ROBLOX_API_KEY:
@@ -246,6 +280,7 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
     inputs:
       env:
         ROBLOX_API_KEY:
@@ -257,6 +292,7 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
     inputs:
       env:
         REPLICATE_API_KEY:
@@ -271,72 +307,84 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   a-b-test-coordinator:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   content-creator:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   influencer-agent:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   sentiment-analyst:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   community-manager:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   localization-agent:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   live-ops-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   retention-engineer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   patch-designer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   player-persona-builder:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   portfolio-manager:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
     inputs:
       env:
         ROBLOX_API_KEY:
@@ -348,27 +396,51 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   prompt-engineer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 300
 
   system-auditor:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 500
 
   qa-lead:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
 
   qa-tester:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    budgetMonthlyCents: 1000
+
+# ── ROUTINES ────────────────────────────────────────────────────────────────
+
+routines:
+  heartbeat:
+    triggers:
+      - kind: schedule
+        cronExpression: "0 6 * * *"
+        timezone: UTC
+  pipeline-cycle:
+    triggers:
+      - kind: schedule
+        cronExpression: "0 8 * * 1"
+        timezone: UTC
+  daily-kpi-check:
+    triggers:
+      - kind: schedule
+        cronExpression: "0 9 * * *"
+        timezone: UTC
