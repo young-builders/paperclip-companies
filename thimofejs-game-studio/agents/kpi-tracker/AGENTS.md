@@ -33,7 +33,7 @@ Where `trend_multiplier` is 1.0 (stable), 1.3 (growing), or 0.7 (declining), bas
 
 - Game stats: `GET /games/v1/games/{universeId}` → `visits`, `maxPlayers`, `created`
 - Revenue: `GET /economy/v1/assets/{assetId}/resale-data` (for Gamepasses)
-- Use `ROBLOX_API_KEY` from environment.
+- Use `ROBLOX_OPS_KEY` from environment.
 
 ## What You Produce
 

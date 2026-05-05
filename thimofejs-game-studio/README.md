@@ -20,7 +20,7 @@ Go to your Paperclip company settings and add these secrets:
 
 | Secret | Where to get it |
 |--------|----------------|
-| `ROBLOX_API_KEY` | Roblox Creator Hub → Open Cloud → API Keys |
+| `ROBLOX_OPS_KEY` | Roblox Creator Hub → Open Cloud → API Keys |
 | `ROBLOX_UNIVERSE_ID` | Roblox Creator Hub → your game's Universe ID |
 | `REDDIT_CLIENT_ID` | reddit.com/prefs/apps → create app |
 | `REDDIT_CLIENT_SECRET` | same as above |

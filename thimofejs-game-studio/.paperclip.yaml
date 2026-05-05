@@ -174,7 +174,7 @@ agents:
         GH_TOKEN:
           kind: secret
           requirement: optional
-        ROBLOX_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
           requirement: optional
 
@@ -256,7 +256,7 @@ agents:
     budgetMonthlyCents: 1000
     inputs:
       env:
-        ROBLOX_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
           requirement: required
         ROBLOX_UNIVERSE_ID:
@@ -271,7 +271,7 @@ agents:
     budgetMonthlyCents: 2000
     inputs:
       env:
-        ROBLOX_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
           requirement: required
 
@@ -283,7 +283,7 @@ agents:
     budgetMonthlyCents: 500
     inputs:
       env:
-        ROBLOX_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
           requirement: required
 
@@ -298,7 +298,7 @@ agents:
         REPLICATE_API_KEY:
           kind: secret
           requirement: required
-        ROBLOX_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
           requirement: required
 
@@ -387,7 +387,7 @@ agents:
     budgetMonthlyCents: 500
     inputs:
       env:
-        ROBLOX_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
           requirement: required
 
