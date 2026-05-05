@@ -89,6 +89,15 @@ The Roblox Studio Builder is responsible for taking all design specs and source 
 - Insert all **Toolbox assets** using the asset IDs from `asset-manifest.md`. For each Model asset: insert into correct folder, set PrimaryPart if the model has a root Part, lock all decorative models (`Model.Archivable = true`, parts `Locked = true`).
 - Create all **ScreenGui hierarchy** for each screen defined in `ui-mockups.md`: create Frame containers, TextLabels, TextButtons with sizes, colors, fonts, and anchor points as specified. Leave event connections empty (scripts handle those).
 - Create all **Sound instances** per `audio-manifest.md`: name, `SoundId = "rbxassetid://XXXXXXXXX"`, `Volume`, `PlaybackSpeed`, `Looped`, parent (SoundService for global, Part for positional), and `SoundGroup` assignment.
+- Create `game-meta.json` in `games/<game-slug>/` with `universeId: null` (deploy-engineer fills this at deploy time):
+  ```json
+  {
+    "slug": "<game-slug>",
+    "title": "<display title from game-designer>",
+    "description": "<short description max 512 chars>",
+    "genre": "<Roblox genre string e.g. Adventure>"
+  }
+  ```
 - Document the final assembled structure in `src/` output confirmation for technical-director review.
 
 ## Output Format
@@ -125,6 +134,16 @@ The Roblox Studio Builder is responsible for taking all design specs and source 
 
 ## Open Issues
 <list anything that could not be assembled without further information>
+
+## game-meta.json
+```json
+{
+  "slug": "<game-slug>",
+  "title": "<title>",
+  "description": "<description>",
+  "genre": "<genre>"
+}
+```
 ```
 
 ## Who Reports To You

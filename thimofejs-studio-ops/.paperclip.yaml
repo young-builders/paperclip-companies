@@ -51,9 +51,6 @@ agents:
         ROBLOX_API_KEY:
           kind: secret
           requirement: required
-        ROBLOX_UNIVERSE_ID:
-          kind: secret
-          requirement: required
 
   devops-engineer:
     adapter:

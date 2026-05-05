@@ -16,7 +16,7 @@ The DevOps Engineer configures and maintains post-launch server monitoring for a
 - Configure monitoring for a new game as part of the pre-launch sequence — confirm readiness to the producer by commenting on the pipeline issue with monitoring parameters before green-light:
   ```bash
   gh issue comment <issue-number> --repo young-builders/pipeline \
-    --body "DevOps monitoring configured for <idea-slug>. Universe ID: $ROBLOX_UNIVERSE_ID. Crash threshold: 5%. Poll interval: 5 min (first 48h) / 30 min (thereafter). ✓"
+    --body "DevOps monitoring configured for <idea-slug>. Universe ID: <universeId-from-deploy-log>. Crash threshold: 5%. Poll interval: 5 min (first 48h) / 30 min (thereafter). ✓"
   ```
 - Poll Roblox Open Cloud for server health data:
   - Endpoint: `GET https://apis.roblox.com/cloud/v2/universes/{universeId}/metrics` (use `$ROBLOX_API_KEY`)
@@ -36,7 +36,7 @@ The DevOps Engineer configures and maintains post-launch server monitoring for a
 # Server Health Report — <idea-slug> — <ISO 8601>
 
 ## Universe ID
-<value> (from env ROBLOX_UNIVERSE_ID)
+<value> (from game-meta.json in young-builders/games or deploy log comment)
 
 ## Monitoring Window
 <start-timestamp> → <end-timestamp>

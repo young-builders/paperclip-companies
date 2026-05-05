@@ -22,7 +22,7 @@ The Launch Producer is the final gate before any game goes live on Roblox. This 
 - Initiate and track the pre-launch checklist, blocking deploy-engineer until all items are confirmed:
   - [ ] Thumbnail (512×512 icon + at least two 1920×1080 screenshots) uploaded to Roblox — confirmed by thumbnail-designer
   - [ ] Localization complete for DE, ES, PT, FR — confirmed by localization-agent with glossary committed
-  - [ ] deploy-engineer has confirmed `ROBLOX_API_KEY` and `ROBLOX_UNIVERSE_ID` are available in environment
+  - [ ] deploy-engineer has confirmed `ROBLOX_API_KEY` is available and `game-meta.json` in PR contains valid `slug`, `title`, `description`, `genre`
   - [ ] devops-engineer has pre-configured monitoring and crash-rate thresholds
   - [ ] Game description, title, and genre tags reviewed and approved
   - [ ] KPI baseline targets confirmed with CEO
@@ -67,6 +67,7 @@ PR checksum / commit SHA: <sha>
 | Localization: PT | ✓ / ✗ | localization-agent | |
 | Localization: FR | ✓ / ✗ | localization-agent | |
 | ROBLOX_API_KEY confirmed | ✓ / ✗ | deploy-engineer | |
+| game-meta.json valid (slug/title/desc/genre) | ✓ / ✗ | deploy-engineer | |
 | Monitoring configured | ✓ / ✗ | devops-engineer | |
 | game-meta present in PR | ✓ / ✗ | deploy-engineer | |
 | No critical open bugs | ✓ / ✗ | qa-record | |
@@ -84,7 +85,7 @@ PR checksum / commit SHA: <sha>
 
 ## Who Reports To You
 
-- **deploy-engineer**: confirmation of `ROBLOX_API_KEY` availability, merge + publish result, and deploy log posted as pipeline issue comment
+- **deploy-engineer**: confirmation of `ROBLOX_API_KEY` availability + `game-meta.json` validity, Universe ID created/confirmed, merge + publish result, and deploy log posted as pipeline issue comment
 - **devops-engineer**: monitoring configuration confirmation and crash-rate threshold settings
 - **thumbnail-designer**: upload confirmation with Roblox asset IDs for icon and thumbnails
 - **localization-agent**: localization completion confirmation per language with glossary reference

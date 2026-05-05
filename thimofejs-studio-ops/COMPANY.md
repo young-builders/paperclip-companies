@@ -65,5 +65,5 @@ Executive layer + post-launch operations. CEO orchestrates the full pipeline. Ev
 ## Secrets Required
 
 - `GH_TOKEN` — GitHub token (repo + issues + pull_requests scope) for merging PRs in young-builders/games and relabeling/closing Issues in young-builders/pipeline
-- `ROBLOX_API_KEY` + `ROBLOX_UNIVERSE_ID` — deploy + analytics
+- `ROBLOX_API_KEY` — deploy + analytics (Universe ID is created dynamically per game, stored in `game-meta.json`)
 - `REPLICATE_API_KEY` — thumbnail generation
