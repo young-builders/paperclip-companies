@@ -61,9 +61,12 @@ Executive layer + post-launch operations. CEO orchestrates the full pipeline. Ev
 | portfolio-manager | Cross-game oversight | Sonnet |
 | memory-manager | Institutional knowledge | Sonnet |
 | prompt-engineer | Agent prompt optimization | Sonnet |
+| announcement-agent | Roblox group wall announcements | Sonnet |
 
 ## Secrets Required
 
 - `GH_TOKEN` — GitHub token (repo + issues + pull_requests scope) for merging PRs in young-builders/games and relabeling/closing Issues in young-builders/pipeline
 - `ROBLOX_API_KEY` — deploy + analytics (Universe ID is created dynamically per game, stored in `game-meta.json`)
 - `REPLICATE_API_KEY` — thumbnail generation
+- `ROBLOX_GROUP_API_KEY` — group wall announcements (group:write only, separate key)
+- `ROBLOX_GROUP_ID` — your Roblox group ID (number)

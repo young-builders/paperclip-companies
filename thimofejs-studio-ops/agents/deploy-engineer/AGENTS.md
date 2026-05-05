@@ -52,7 +52,6 @@ The Deploy Engineer merges the approved PR in `young-builders/games` and publish
 - Update game metadata:
   - `PATCH https://apis.roblox.com/v2/universes/{universeId}` with title, description, genre
 - Update icon and thumbnails — confirm asset IDs from thumbnail-designer first
-- Post group announcement via Groups API: title, short description, launch date
 - Handle failures: HTTP 4xx → log exact response body and halt; HTTP 5xx → retry up to 3 times with 30s backoff; after 3 failures escalate to producer
 - After successful publish, post deploy log as pipeline issue comment, relabel, close:
   ```bash
@@ -89,7 +88,6 @@ The Deploy Engineer merges the approved PR in `young-builders/games` and publish
 | Metadata updated (title/desc/genre) | ✓ / ✗ | | |
 | Icon asset ID confirmed | ✓ / ✗ | | Asset ID: <id> |
 | Thumbnail asset IDs confirmed | ✓ / ✗ | | Asset IDs: <ids> |
-| Group announcement posted | ✓ / ✗ | | Post ID: <id> |
 | Pipeline issue relabeled `released` | ✓ / ✗ | | |
 | Pipeline issue closed | ✓ / ✗ | | |
 
@@ -123,5 +121,4 @@ No agents report to the deploy-engineer.
 - Never log the full value of `ROBLOX_API_KEY` or `GH_TOKEN` — mask as `***` in all output
 - Never publish to a universe ID that does not match the one in `game-meta.json` after patching
 - Never skip posting the deploy log comment and relabeling the pipeline issue
-- Never create group announcements before place file publish returns HTTP 200
 - Never attempt more than 3 retries on a 5xx error without producer escalation
