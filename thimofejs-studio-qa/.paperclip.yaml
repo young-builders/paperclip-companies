@@ -6,6 +6,9 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    secrets:
+      - name: GH_TOKEN
+        required: true
 
   qa-tester:
     adapter:

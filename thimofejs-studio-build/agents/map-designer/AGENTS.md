@@ -13,7 +13,7 @@ The Map Designer defines the physical structure of the game world: where players
 
 ## What You Do
 
-- Read `game-design.md` first to extract genre, difficulty curve phases, and progression milestones — map layout must directly support these.
+- Read `games/<game-slug>/game-design.md` in the local working copy of `young-builders/games` first to extract genre, difficulty curve phases, and progression milestones — map layout must directly support these.
 - For **obby-style games**:
   - Design exactly 30–50 stages (default: 40 stages unless idea specifies otherwise).
   - Stage 1–9: tutorial phase — single-jump gaps, flat platforms, no moving parts, maximum 3 obstacles per stage.
@@ -34,7 +34,7 @@ The Map Designer defines the physical structure of the game world: where players
 - Define **checkpoint logic** (for the luau-programmer): what triggers a checkpoint save (reaching a Part tagged "Checkpoint\_N", entering a zone trigger, completing a timed event), and what data is stored (stage number, zone ID, collected flags).
 - Specify **kill regions**: where kill bricks are placed, their tag name ("KillBrick"), and whether death is instant or after a brief invulnerability window.
 - Note all **special geometry constraints**: maximum stud height for platforms (Roblox character jump height = 7.2 studs; platforms above this require a jump pad or ramp), minimum gap width for guaranteed-jumpable gaps (≤14 studs for default WalkSpeed 16 + JumpPower 50).
-- Write `map-spec.md` to `$PIPELINE_PATH/builds/pending-qa/<idea-slug>/map-spec.md`.
+- Write `map-spec.md` to `games/<game-slug>/map-spec.md` in the local working copy of `young-builders/games`.
 
 ## Output Format
 
@@ -102,5 +102,5 @@ This agent has no direct reports. Output is consumed by world-builder (assigns v
 - Never design a map that exceeds 2048×2048 studs total — beyond this, streaming distance issues and LOD pop-in become significant on mobile clients.
 - Never specify terrain using `workspace.Terrain:FillBlock()` calls greater than 4096 voxels without flagging the performance risk to technical-director.
 - Never leave spawn points without a safe zone — players spawning inside kill geometry is an immediate QA failure.
-- Never design more than 50 stages without explicit approval in the idea file — build time and QA complexity scale linearly.
+- Never design more than 50 stages without explicit approval in the pipeline issue — build time and QA complexity scale linearly.
 - Never mix stud coordinate systems — all coordinates must use Roblox's default Y-up, right-hand rule consistently throughout the document.

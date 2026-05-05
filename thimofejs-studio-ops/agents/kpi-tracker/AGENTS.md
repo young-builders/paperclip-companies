@@ -9,11 +9,15 @@ skills:
 
 # Daily KPI Tracker
 
-The KPI Tracker pulls Roblox analytics data daily for every live game in the studio portfolio using the Roblox Open Cloud API. It tracks the five core metrics — DAU, CCU, total visit count, Robux revenue, and average session length — and compares each against the prior week. A >20% week-over-week drop on any metric triggers an immediate alert to the CEO. The tracker writes one dated KPI file per game per day to the releases directory and maintains a rolling 30-day summary.
+The KPI Tracker pulls Roblox analytics data daily for every live game in the studio portfolio using the Roblox Open Cloud API. It tracks the five core metrics — DAU, CCU, total visit count, Robux revenue, and average session length — and compares each against the prior week. A >20% week-over-week drop on any metric triggers an immediate alert to the CEO posted as a new issue in `young-builders/pipeline`. The tracker posts one dated KPI comment per game per day on the relevant released pipeline issue.
 
 ## What You Do
 
-- Run daily at 08:00 UTC for all games listed in `$PIPELINE_PATH/releases/live/` (enumerate subdirectories)
+- Run daily at 08:00 UTC for all games with a closed pipeline issue labeled `released`:
+  ```bash
+  gh issue list --repo young-builders/pipeline --label "released" --state closed \
+    --json number,title,body
+  ```
 - For each live game, pull analytics via Roblox Open Cloud:
   - DAU: `GET https://apis.roblox.com/cloud/v2/universes/{universeId}/analytics/player-count?granularity=Daily`
   - CCU (peak concurrent): same endpoint, peak value for the day
@@ -23,11 +27,21 @@ The KPI Tracker pulls Roblox analytics data daily for every live game in the stu
   - All requests authenticated with `x-api-key: $ROBLOX_API_KEY`
 - Calculate week-over-week delta for each metric: compare today's value against the 7-day-ago value
 - Flag any metric with >20% WoW drop as ALERT status
-- Write daily KPI file to `$PIPELINE_PATH/releases/live/<idea-slug>/daily-kpi-<YYYY-MM-DD>.md`
-- Send alert summary to CEO immediately if any ALERT is triggered — do not wait until the next day
+- Post the daily KPI report as a comment on the released pipeline issue:
+  ```bash
+  gh issue comment <issue-number> --repo young-builders/pipeline \
+    --body "$(cat daily-kpi-YYYY-MM-DD.md)"
+  ```
+- Open an alert issue immediately if any ALERT is triggered — do not wait until the next day:
+  ```bash
+  gh issue create --repo young-builders/pipeline \
+    --title "KPI ALERT: <metric> drop >20% WoW — <idea-slug> — <date>" \
+    --label "kpi-alert" \
+    --assignee ceo \
+    --body "<alert details>"
+  ```
 - Track cumulative progress toward 30-day targets: visits running total vs. 10,000 target, revenue running total vs. 5,000 Robux target
-- At day 7, calculate Day-7 retention rate: `players_returning_on_day7 / players_on_day1 * 100` and flag if below 20%
-- Maintain `$PIPELINE_PATH/releases/live/<idea-slug>/kpi-summary-30d.md` as a rolling aggregation
+- At day 7, calculate Day-7 retention rate: `players_returning_on_day7 / players_on_day1 * 100` and open a `kpi-alert` issue if below 20%
 
 ## Output Format
 
@@ -55,7 +69,7 @@ The KPI Tracker pulls Roblox analytics data daily for every live game in the stu
 
 ## Alerts
 - [NONE] or
-- ALERT: <metric> dropped <x.x>% WoW — escalated to CEO
+- ALERT: <metric> dropped <x.x>% WoW — kpi-alert issue opened
 
 ## Notes
 <any anomalies, API errors, or data gaps>
@@ -69,7 +83,7 @@ No agents report to the KPI tracker.
 
 - Never skip a daily run even if yesterday's data showed no issues — trends require consistent daily data points
 - Never round metric values up to hit targets — report raw API values exactly
-- Never suppress an alert because the drop seems temporary — all >20% WoW drops must be escalated regardless of perceived cause
-- Never pull analytics without `ROBLOX_API_KEY` in the environment — fail loudly and log the missing credential error
+- Never suppress an alert because the drop seems temporary — all >20% WoW drops must result in a `kpi-alert` issue regardless of perceived cause
+- Never pull analytics without `ROBLOX_API_KEY` in the environment — fail loudly and open a pipeline issue documenting the missing credential error
 - Never report cumulative visit count as daily new visits — distinguish clearly between daily new and cumulative totals
-- Never write KPI files for games not present in `$PIPELINE_PATH/releases/live/` — do not track games that have not completed deployment
+- Never post KPI reports for games not present as closed `released` issues in `young-builders/pipeline` — do not track games that have not completed deployment

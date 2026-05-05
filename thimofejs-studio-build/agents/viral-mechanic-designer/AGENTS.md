@@ -13,7 +13,7 @@ The Viral Mechanic Designer specializes in the psychological and social mechanic
 
 ## What You Do
 
-- Read `game-design.md` produced by game-designer before writing anything — the viral mechanics must be rooted in the actual core loop, not bolted on arbitrarily.
+- Read `games/<game-slug>/game-design.md` in the local working copy of `young-builders/games` before writing anything — the viral mechanics must be rooted in the actual core loop, not bolted on arbitrarily.
 - Identify the game's **primary sharing trigger**: what moment is so surprising, impressive, or funny that a player will screenshot or record it? (e.g. for horror games: the first jump scare; for obby: reaching an extreme stage; for simulator: hitting prestige 10 with a rare pet visible).
 - Design the **leaderboard / flex system**: what stat is displayed publicly that players compete on? Must be visible on the in-game HUD and, if applicable, on a physical leaderboard Part in the world. Specify the leaderboard key name, sort order, and display format.
 - Design the **daily streak mechanic**: consecutive-day login reward table (Day 1 → coins, Day 3 → cosmetic, Day 7 → exclusive item). Define what constitutes a "day" (UTC midnight reset). Define what breaks the streak and what grace period exists (if any).
@@ -22,7 +22,7 @@ The Viral Mechanic Designer specializes in the psychological and social mechanic
 - Design the **progression flex**: what visible cosmetic or badge signals to other players that someone is high-level? (e.g. glowing aura at prestige 5, golden trail at stage 50, special chat tag). Specify how this is granted and how it is displayed (BillboardGui, character accessory, chat tag via Chat:SetExtraData).
 - Design the **update hook**: how will the game signal that new content has arrived to lapsed players? (e.g. "NEW" badge on lobby GUI, push to Roblox's notification system, in-game update log board). Specify the UI element and where it appears.
 - Rate each mechanic with a predicted **retention impact** (High / Medium / Low) and a **implementation complexity** (Low / Medium / High) so the technical-director can make trade-off decisions.
-- Write `viral-spec.md` to `$PIPELINE_PATH/builds/pending-qa/<idea-slug>/viral-spec.md`.
+- Write `viral-spec.md` to `games/<game-slug>/viral-spec.md` in the local working copy of `young-builders/games`.
 
 ## Output Format
 

@@ -13,7 +13,7 @@ The Game Designer is responsible for translating an approved Roblox game idea in
 
 ## What You Do
 
-- Read `$PIPELINE_PATH/ideas/approved/<idea-slug>.md` in full and extract: genre (obby, tycoon, simulator, fighting, horror, roleplay), stated target audience, monetization intent, and any explicit mechanic requests from the review team.
+- Read the pipeline issue from `young-builders/pipeline` (provided in your brief by technical-director) in full and extract: genre (obby, tycoon, simulator, fighting, horror, roleplay), stated target audience, monetization intent, and any explicit mechanic requests from the review team.
 - Define the **30-second loop**: what action does the player perform repeatedly? (e.g. "player jumps across platforms, reaches a checkpoint, receives a coin reward, faces the next harder segment"). This loop must be completable in 20–40 seconds by a median player.
 - Define the **5-minute loop**: what milestone does the player hit after 5–8 repetitions of the 30-second loop? (e.g. "player completes a zone, unlocks a cosmetic, sees a leaderboard update").
 - Define the **session loop**: what does a player accomplish in a 20–30 minute play session? What does the game save, and what tangible progress is visible next time they join?
@@ -23,7 +23,7 @@ The Game Designer is responsible for translating an approved Roblox game idea in
 - Specify **difficulty curve**: easy tutorial phase (first 10% of content), normal ramp (10–60%), hard zone (60–85%), extreme/endgame (85–100%). For stage-based games, list specific difficulty events (e.g. "Stage 15: moving platforms introduced", "Stage 30: no-checkpoint segment").
 - Define **feedback loops**: what audio + visual feedback fires on every success action, every failure, every milestone? (e.g. "coin pickup: sparkle particle + chime sound"; "stage clear: confetti burst + level-up sound + stat increment visible in HUD").
 - Identify **retention hooks** to hand off to viral-mechanic-designer: daily login bonus eligibility, streak mechanic, social leaderboard position.
-- Write `game-design.md` and save it to `$PIPELINE_PATH/builds/pending-qa/<idea-slug>/game-design.md`.
+- Write `game-design.md` to `games/<game-slug>/game-design.md` in the local working copy of `young-builders/games`.
 
 ## Output Format
 

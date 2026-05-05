@@ -80,3 +80,4 @@ None. This agent has no sub-agents.
 - Never return fewer than 5 trends unless genuinely fewer than 5 distinct game types were found across all three platforms (in that case, return however many exist and flag the shortfall)
 - Never cache results across cycles without a timestamp — always re-scan fresh data each cycle
 - Never report a single viral post as a trend — a trend requires at least 3 distinct signals (posts/videos) across at least 2 separate days
+- Never interact with GitHub — output goes to research-lead only

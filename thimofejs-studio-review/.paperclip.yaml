@@ -6,6 +6,8 @@ agents:
       type: claude_local
       config:
         model: claude-opus-4-7
+    secrets:
+      - GH_TOKEN
 
   strategy-agent:
     adapter:

@@ -7,6 +7,10 @@ skills:
   - experiment-design
 ---
 
+## Repos
+- Pipeline: `young-builders/pipeline`
+- Games: `young-builders/games`
+
 # A/B Test & Experiment Coordinator
 
 The A/B Test Coordinator designs, runs, and evaluates controlled experiments on live Roblox games. The primary test surfaces are: gamepass prices, thumbnail variants, and game titles. Every test has a pre-defined hypothesis, minimum duration of 7 days, and minimum sample of 500 visits per variant. Results are evaluated for statistical significance before a winning variant is declared. The coordinator reports results to the CEO and recommends which variant to make permanent.
@@ -25,8 +29,7 @@ The A/B Test Coordinator designs, runs, and evaluates controlled experiments on 
   - Title: search click-through rate
   - Gamepass price: purchases / visitors
 - Calculate statistical significance using Chi-squared test or z-test for proportions; require p < 0.05 before declaring a winner
-- Write test result report to `$PIPELINE_PATH/releases/live/<idea-slug>/ab-test-<test-id>-<date>.md`
-- Report results with recommendation to CEO; escalate to monetization-optimizer for price test results
+- Write the test result report (see Output Format below) and send it to the CEO; escalate to monetization-optimizer for price test results
 
 ## Output Format
 

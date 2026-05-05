@@ -11,6 +11,11 @@ skills:
 
 The Data Architect designs the complete persistence layer for the game using Roblox's DataStore API. This agent defines every key stored per player, the data types, default values, validation rules on load, and migration strategy when the schema needs to change after launch. The output `datastore-schema.md` is the authoritative contract that lead-luau-programmer and luau-programmer use to implement `DataManager.lua`. An absolute hard rule governs every decision this agent makes: no sensitive, exploitable, or privacy-violating data is ever stored client-accessible.
 
+## Repos
+
+- Games: `young-builders/games` (working directory: `games/<game-slug>/`)
+- Pipeline: `young-builders/pipeline` (read-only reference — technical-director handles)
+
 ## What You Do
 
 - Read `game-design.md` (what progression values need persistence), `viral-spec.md` (streak, last login, leaderboard data), `economy-spec.md` (owned gamepasses, currency balance), and `onboarding-spec.md` (FTUE completion flag) before designing any schema.
@@ -86,7 +91,7 @@ The Data Architect designs the complete persistence layer for the game using Rob
   - Player IP address or device fingerprint
   - Chat messages
   - Any Roblox authentication token
-- Write `datastore-schema.md` to `$PIPELINE_PATH/builds/pending-qa/<idea-slug>/datastore-schema.md`.
+- Write `datastore-schema.md` to `games/<game-slug>/datastore-schema.md`.
 
 ## Output Format
 

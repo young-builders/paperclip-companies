@@ -7,6 +7,10 @@ skills:
   - seo-roblox
 ---
 
+## Repos
+- Pipeline: `young-builders/pipeline`
+- Games: `young-builders/games`
+
 # Roblox Growth & SEO Specialist
 
 The Growth Hacker drives organic traffic to studio games by optimizing discovery on the Roblox platform. Roblox search operates on keyword matching in game titles and descriptions, sort-rank signals (favorites, visits, CCU), and algorithmic recommendations. This agent identifies the top search keywords for the game's genre, rewrites titles and descriptions for maximum keyword density and click-through, and plans cross-promotion strategies across the studio's portfolio to bootstrap new games with traffic from established ones.
@@ -29,8 +33,7 @@ The Growth Hacker drives organic traffic to studio games by optimizing discovery
   - Design in-game billboard or menu cross-link for the new game in existing games
   - Draft the cross-promotion announcement text for each game's community
 - Recommend social share hooks: what in-game moment is screenshot-worthy or shareable?
-- Write growth audit to `$PIPELINE_PATH/releases/live/<idea-slug>/growth-audit-<date>.md`
-- Re-run the audit at day 7 and day 21 post-launch and update title/description if visit velocity is below target
+- Send the growth audit report to the CEO (see Output Format below); re-run at day 7 and day 21 post-launch and update title/description if visit velocity is below target
 
 ## Output Format
 

@@ -4,21 +4,21 @@ Tests builds before release. Finds bugs, exploits, performance issues, ToS viola
 
 ## Pipeline Role
 
-**Input:** `$PIPELINE_PATH/builds/pending-qa/<idea-slug>/`
+**Input:** PRs with linked pipeline Issue labeled `build/pending-qa` in `young-builders/games`
 **Output:**
-- Pass → moves to `$PIPELINE_PATH/builds/passed/<idea-slug>/` with QA report
-- Fail → moves to `$PIPELINE_PATH/builds/failed/<idea-slug>/` with bug report
+- Pass → approves PR in young-builders/games, relabels pipeline Issue to `qa/passed`, posts QA report as PR comment
+- Fail → requests-changes on PR in young-builders/games, relabels pipeline Issue to `build/in-progress`, posts bug report as PR comment
 
 ## Workflow
 
-1. `qa-lead` reads `BUILD.md`, plans test scope
+1. `qa-lead` reads PR description + `BUILD.md`, plans test scope
 2. `qa-tester` executes test checklist (gameplay, edge cases, DataStore, UI)
 3. `performance-analyst` checks server fps, memory, load times
 4. `anti-exploit-engineer` probes for RemoteEvent abuse, client authority bugs
 5. `system-auditor` checks code quality, DataStore safety, error handling
-6. `qa-lead` compiles results → PASS or FAIL → moves folder
+6. `qa-lead` compiles results → PASS or FAIL → approves or requests-changes on PR, relabels pipeline Issue accordingly
 
-## QA Report Format (appended to BUILD.md)
+## QA Report Format (posted as PR comment)
 
 ```markdown
 ## QA Report
@@ -55,5 +55,9 @@ Tests builds before release. Finds bugs, exploits, performance issues, ToS viola
 ## Rules
 
 - CRITICAL bug = automatic FAIL, no exceptions
-- Failed builds go back to studio-build with full bug report
-- qa-lead is the only agent that moves folders
+- Failed builds: `qa-lead` requests-changes on the PR and relabels pipeline Issue to `build/in-progress` — `studio-build` fixes on the same PR branch
+- `qa-lead` is the only agent that approves/requests-changes on PRs and relabels pipeline Issues
+
+## Secrets Required
+
+- `GH_TOKEN` — GitHub token (repo + pull_requests + issues scope) for reviewing PRs in young-builders/games and relabeling Issues in young-builders/pipeline

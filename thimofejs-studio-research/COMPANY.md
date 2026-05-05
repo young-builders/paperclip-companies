@@ -5,7 +5,7 @@ Finds viral Roblox game ideas. Scans trends, analyzes competitors, builds player
 ## Pipeline Role
 
 **Input:** Nothing (entry point of pipeline)
-**Output:** `$PIPELINE_PATH/ideas/pending/<idea-slug>.md`
+**Output:** GitHub Issue in `young-builders/pipeline` with label `idea/pending`
 
 ## Workflow
 
@@ -14,13 +14,13 @@ Finds viral Roblox game ideas. Scans trends, analyzes competitors, builds player
 3. `competitor-analyst` checks existing Roblox games in same niche
 4. `market-researcher` estimates audience size + monetization potential
 5. `player-persona-builder` defines target player profile
-6. `research-lead` synthesizes into idea file → drops in `ideas/pending/`
+6. `research-lead` synthesizes into an Issue body and opens it in `young-builders/pipeline` with label `idea/pending`
 
-## Idea File Format
+## Issue Format
 
-```
-$PIPELINE_PATH/ideas/pending/<idea-slug>.md
-```
+Title: `[idea] <game-title-concept>`
+
+Body:
 
 ```markdown
 # [Game Title Concept]
@@ -45,7 +45,7 @@ $PIPELINE_PATH/ideas/pending/<idea-slug>.md
 
 | Agent | Role |
 |-------|------|
-| research-lead | Orchestrates, writes final idea file |
+| research-lead | Orchestrates, opens final Issue |
 | trend-scout | Reddit + YouTube scanning (needs API keys) |
 | trend-forecaster | Trend runway analysis |
 | market-researcher | Audience + revenue estimation |
@@ -54,5 +54,6 @@ $PIPELINE_PATH/ideas/pending/<idea-slug>.md
 
 ## Secrets Required
 
+- `GH_TOKEN` — GitHub token (repo + issues scope) for opening Issues in young-builders/pipeline
 - `REDDIT_CLIENT_ID` + `REDDIT_CLIENT_SECRET` — Reddit API
 - `YOUTUBE_API_KEY` — YouTube Data API

@@ -81,3 +81,4 @@ None. This agent has no sub-agents.
 - Never include games that are not in the same genre as the input niche — off-topic competitors add noise
 - Never suppress the clone risk flag because the game idea "sounds different" — mechanical similarity score drives the flag, not surface aesthetics
 - Never fabricate concurrent player counts — if the Roblox API returns no live data, record `null` and note the data gap
+- Never interact with GitHub — output goes to research-lead only

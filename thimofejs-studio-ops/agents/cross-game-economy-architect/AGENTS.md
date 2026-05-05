@@ -7,6 +7,10 @@ skills:
   - portfolio-economy
 ---
 
+## Repos
+- Pipeline: `young-builders/pipeline`
+- Games: `young-builders/games`
+
 # Cross-Game Economy Architect
 
 The Cross-Game Economy Architect manages any shared currency, shared assets, or cross-portfolio economy mechanics across multiple studio games. The primary risk this agent mitigates is inflation: if a player can earn shared currency in Game A and spend it in Game B, earn rates must be carefully balanced across games or the entire currency becomes worthless. This agent designs and polices the shared economy rules, monitors for inflation signals, and recommends interventions when imbalance is detected.
@@ -22,8 +26,7 @@ The Cross-Game Economy Architect manages any shared currency, shared assets, or 
   - Transfer fee (recommended 5–10% burn to reduce inflation pressure)
   - Cooldown periods between transfers
 - Review premium-benefits-designer currency boosts for cross-portfolio impact — a +30% currency boost in one game can flood the shared economy
-- Produce a monthly portfolio economy health report for the CEO
-- Write economy architecture documents to `$PIPELINE_PATH/studio-economy/economy-ledger.md`
+- Produce a monthly portfolio economy health report and send it to the CEO (see Output Format below)
 
 ## Output Format
 

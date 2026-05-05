@@ -1,6 +1,6 @@
 # Studio Pipeline
 
-5-company pipeline for Roblox game development. Coordination via shared filesystem.
+5-company pipeline for Roblox game development. Coordination via GitHub Issues and Pull Requests.
 
 ## Architecture
 
@@ -8,47 +8,59 @@
 studio-research → studio-review → studio-build → studio-qa → studio-ops
 ```
 
-Each company reads from its input folder, writes to the next company's input folder.
+Each company reads from GitHub Issues in `young-builders/pipeline`, acts on them, and advances the label to trigger the next company.
 
-## Shared Folder Structure
+## GitHub Coordination
 
-Set `PIPELINE_PATH` env var pointing to a shared directory accessible by all companies.
+Two repositories:
+
+| Repo | Purpose |
+|------|---------|
+| `young-builders/pipeline` | Idea tracking — Issues + Labels |
+| `young-builders/games` | Game code — source files + PRs |
+
+No shared filesystem. No `PIPELINE_PATH`. All state lives in GitHub.
+
+## Label Flow
 
 ```
-$PIPELINE_PATH/
-  ideas/
-    pending/          ← research writes here
-    approved/         ← review moves approved ideas here
-    rejected/         ← review moves rejected ideas here (with reason)
-  builds/
-    pending-qa/       ← build writes here
-    passed/           ← qa moves passed builds here
-    failed/           ← qa moves failed builds here (with bug report)
-  releases/
-    live/             ← ops marks deployed games here
+idea/pending
+    ↓  (review: GO)
+idea/approved
+    ↓  (build: picks up, opens PR)
+build/in-progress
+    ↓  (build: PR ready)
+build/pending-qa
+    ↓  (qa: approved PR)
+qa/passed
+    ↓  (ops: merged + deployed)
+released  [Issue closed]
+
+idea/pending → idea/rejected  (review: NO-GO)
+build/pending-qa → build/in-progress  (qa: FAIL — back to build)
 ```
 
 ## Companies
 
 | Company | Input | Output | Opus Agents |
 |---------|-------|--------|-------------|
-| studio-research | — | ideas/pending | — |
-| studio-review | ideas/pending | ideas/approved or rejected | review-director |
-| studio-build | ideas/approved | builds/pending-qa | technical-director |
-| studio-qa | builds/pending-qa | builds/passed or failed | — |
-| studio-ops | builds/passed | live release | ceo, producer, learning-agent |
+| studio-research | — | Issue with `idea/pending` | — |
+| studio-review | Issues with `idea/pending` | relabel to `idea/approved` or `idea/rejected` | review-director |
+| studio-build | Issues with `idea/approved` | PR in young-builders/games, relabel to `build/pending-qa` | technical-director |
+| studio-qa | PRs with `build/pending-qa` | approve PR + `qa/passed`, or request-changes + `build/in-progress` | — |
+| studio-ops | Issues with `qa/passed` | merge PR, deploy, relabel to `released`, close issue | ceo, producer, learning-agent |
 
 ## Failure Loops
 
-- `review` rejects idea → `research` can rework and resubmit
-- `qa` fails build → `build` fixes and resubmits to `builds/pending-qa`
+- `review` rejects idea → Issue stays open with `idea/rejected` label + rejection reason comment. `research` can open a new Issue with reworked idea.
+- `qa` fails build → requests-changes on PR, relabels pipeline Issue to `build/in-progress`. `build` fixes and force-pushes to same PR branch.
 
 ## Setup
 
-Pipeline folder: `/Users/thimofejzapko/game-studio-pipeline` (already initialized)
+Each company needs exactly one secret:
 
-```bash
-export PIPELINE_PATH=/Users/thimofejzapko/game-studio-pipeline
+```
+GH_TOKEN  — GitHub personal access token with repo + issues scope
 ```
 
-Add to `~/.zshrc` to persist. Then configure secrets per company (see each COMPANY.md) and start with `studio-research`.
+Set `GH_TOKEN` in Paperclip secrets for each company. No other environment variables required. Then start with `studio-research`.

@@ -4,28 +4,29 @@ Executive layer + post-launch operations. CEO orchestrates the full pipeline. Ev
 
 ## Pipeline Role
 
-**Input:** `$PIPELINE_PATH/builds/passed/<idea-slug>/`
-**Output:** Live Roblox game + ongoing ops
+**Input:** Issues with label `qa/passed` in `young-builders/pipeline`
+**Output:** Merges PR in `young-builders/games`, deploys to Roblox, relabels Issue to `released`, closes Issue
 
 ## Workflow
 
 ### Pre-Launch
-1. `producer` reviews QA-passed build, gives final green light
+1. `producer` reviews the QA-passed PR + QA report comment, gives final green light
 2. `thumbnail-designer` generates game icon + thumbnails
 3. `localization-agent` prepares EN/DE/ES/PT descriptions
-4. `deploy-engineer` publishes to Roblox via API
+4. `deploy-engineer` merges PR in `young-builders/games`, publishes to Roblox via API
 5. `devops-engineer` sets up monitoring
+6. `ceo` relabels pipeline Issue to `released` and closes it
 
 ### Post-Launch (ongoing)
-6. `kpi-tracker` monitors DAU, CCU, revenue daily
-7. `player-behavior-analyst` analyzes retention + drop-off points
-8. `a-b-test-coordinator` runs gamepass + UI experiments
-9. `growth-hacker` + `influencer-agent` + `content-creator` drive traffic
-10. `community-manager` + `sentiment-analyst` watch player feedback
-11. `live-ops-designer` + `patch-designer` plan updates
-12. `retention-engineer` addresses churn signals
-13. `monetization-optimizer` tunes economy + gamepass pricing
-14. `learning-agent` documents what worked → feeds back to research
+7. `kpi-tracker` monitors DAU, CCU, revenue daily
+8. `player-behavior-analyst` analyzes retention + drop-off points
+9. `a-b-test-coordinator` runs gamepass + UI experiments
+10. `growth-hacker` + `influencer-agent` + `content-creator` drive traffic
+11. `community-manager` + `sentiment-analyst` watch player feedback
+12. `live-ops-designer` + `patch-designer` plan updates
+13. `retention-engineer` addresses churn signals
+14. `monetization-optimizer` tunes economy + gamepass pricing
+15. `learning-agent` documents what worked → feeds back to research
 
 ### Portfolio Management
 - `portfolio-manager` tracks all live games, flags underperformers
@@ -39,7 +40,7 @@ Executive layer + post-launch operations. CEO orchestrates the full pipeline. Ev
 | ceo | Pipeline orchestration, strategic decisions | Opus |
 | producer | Pre-launch sign-off | Opus |
 | learning-agent | Post-mortem, feeds learnings back to research | Opus |
-| deploy-engineer | Roblox publish via API | Sonnet |
+| deploy-engineer | Merge PR + Roblox publish via API | Sonnet |
 | devops-engineer | Monitoring setup | Sonnet |
 | kpi-tracker | Daily metrics | Sonnet |
 | player-behavior-analyst | Retention analysis | Sonnet |
@@ -63,5 +64,6 @@ Executive layer + post-launch operations. CEO orchestrates the full pipeline. Ev
 
 ## Secrets Required
 
+- `GH_TOKEN` — GitHub token (repo + issues + pull_requests scope) for merging PRs in young-builders/games and relabeling/closing Issues in young-builders/pipeline
 - `ROBLOX_API_KEY` + `ROBLOX_UNIVERSE_ID` — deploy + analytics
 - `REPLICATE_API_KEY` — thumbnail generation

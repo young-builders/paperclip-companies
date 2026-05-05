@@ -4,12 +4,12 @@ Builds approved game ideas into playable Roblox experiences.
 
 ## Pipeline Role
 
-**Input:** `$PIPELINE_PATH/ideas/approved/<idea-slug>.md`
-**Output:** `$PIPELINE_PATH/builds/pending-qa/<idea-slug>/` — full build artifact folder
+**Input:** Issues with label `idea/approved` in `young-builders/pipeline`
+**Output:** Pull Request in `young-builders/games` with game code; pipeline Issue relabeled to `build/pending-qa`
 
 ## Workflow
 
-1. `technical-director` reads approved idea, creates build plan
+1. `technical-director` reads approved Issue, creates build plan
 2. `game-designer` + `viral-mechanic-designer` define core loop + hook mechanics
 3. `map-designer` + `world-builder` design level layout
 4. `lead-luau-programmer` coordinates programming work, sets architecture
@@ -19,15 +19,34 @@ Builds approved game ideas into playable Roblox experiences.
 8. `economy-designer` wires in gamepass + currency systems
 9. `data-architect` sets up DataStore schema
 10. `roblox-studio-builder` assembles final Studio file
-11. `technical-director` writes build report → drops artifact in `builds/pending-qa/`
+11. `technical-director` opens PR in `young-builders/games`, links pipeline Issue, relabels Issue to `build/pending-qa`
 
-## Build Artifact Format
+## Game Repository Structure
 
 ```
-$PIPELINE_PATH/builds/pending-qa/<idea-slug>/
-  BUILD.md          — build summary, known issues, test checklist
-  game.rbxl         — Roblox Studio file (or Rojo project)
-  src/              — Luau source files
+young-builders/games/
+  games/<game-slug>/
+    BUILD.md          — build summary, known issues, test checklist
+    game.rbxl         — Roblox Studio file (or Rojo project)
+    src/              — Luau source files
+```
+
+## PR Description Format
+
+```markdown
+## Build Summary
+
+**Idea Issue:** young-builders/pipeline#<issue-number>
+**Game Slug:** <game-slug>
+
+## What was built
+- ...
+
+## Known Issues
+- ...
+
+## Test Checklist
+- [ ] ...
 ```
 
 ## Agents
@@ -53,5 +72,9 @@ $PIPELINE_PATH/builds/pending-qa/<idea-slug>/
 
 ## Rules
 
-- Only pick up ideas from `ideas/approved/` — never from `pending/` or `rejected/`
-- QA failures return build to `builds/failed/` with bug report — technical-director triages and restarts
+- Only pick up Issues labeled `idea/approved` — never `idea/pending` or `idea/rejected`
+- QA failures return the Issue to `build/in-progress` label — `technical-director` triages, fixes on the existing PR branch, and force-pushes
+
+## Secrets Required
+
+- `GH_TOKEN` — GitHub token (repo + issues + pull_requests scope) for reading Issues in young-builders/pipeline and opening PRs in young-builders/games

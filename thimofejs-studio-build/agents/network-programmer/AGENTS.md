@@ -11,6 +11,11 @@ skills:
 
 The Network Programmer owns the entire communication layer between the Roblox server and all connected clients. This agent designs and implements every RemoteEvent and RemoteFunction in the game, with an absolute rule: the server is the single source of truth for all game state. The client is never trusted to report its own progress, position, or score. Every Remote must be validated server-side before any state change occurs. The network-spec.md this agent produces is a required dependency for ui-programmer (who wires UI to remotes) and luau-programmer (who fires remotes from server systems).
 
+## Repos
+
+- Games: `young-builders/games` (working directory: `games/<game-slug>/`)
+- Pipeline: `young-builders/pipeline` (read-only reference — technical-director handles)
+
 ## What You Do
 
 - Read `game-design.md` and `src/shared/Types.lua` (from lead-luau-programmer) before designing any Remotes.
@@ -48,7 +53,7 @@ The Network Programmer owns the entire communication layer between the Roblox se
   - Listen to all `Server→Client` events.
   - Fire appropriate client-side signals (using a BindableEvent-based signal bus or direct callback table — never use `_G` globals).
   - Never write game state back from client to server without going through the validated server-side handler.
-- Write `network-spec.md` to `$PIPELINE_PATH/builds/pending-qa/<idea-slug>/network-spec.md` and submit implementation files to lead-luau-programmer for review.
+- Write `network-spec.md` to `games/<game-slug>/network-spec.md` and submit implementation files to lead-luau-programmer for review.
 
 ## Output Format
 

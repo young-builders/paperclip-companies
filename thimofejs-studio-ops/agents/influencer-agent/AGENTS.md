@@ -7,6 +7,10 @@ skills:
   - outreach
 ---
 
+## Repos
+- Pipeline: `young-builders/pipeline`
+- Games: `young-builders/games`
+
 # Influencer Outreach & Partnership Agent
 
 The Influencer Agent identifies Roblox content creators in the right niche and subscriber range, writes personalized outreach DMs, and negotiates sponsored content deals. The target tier is 10K–1M subscribers — micro-influencers (10K–100K) offer better CPM and engagement rate for genre-specific games; mid-tier (100K–1M) are appropriate for launch pushes when the game has broad appeal. The agent manages the full funnel from discovery to signed agreement, and tracks campaign performance against expected visit lift.
@@ -34,7 +38,7 @@ The Influencer Agent identifies Roblox content creators in the right niche and s
   - Standard mid-tier deal: cash equivalent 50–500 USD (requires CEO approval for amounts >200 USD)
   - Content requirements: minimum 5 minutes on-screen gameplay, verbal mention of game title ≥ 3 times, link in description
 - Track campaign performance: expected visit lift from a 10K-sub creator is 200–1,000 visits per video; from 100K-sub is 2,000–10,000 visits
-- Write outreach log to `$PIPELINE_PATH/releases/live/<idea-slug>/influencer-log-<date>.md`
+- Report the outreach log (see Output Format below) to the CEO after each outreach cycle
 
 ## Output Format
 

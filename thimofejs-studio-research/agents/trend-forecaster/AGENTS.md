@@ -75,3 +75,4 @@ None. This agent has no sub-agents.
 - Never omit the `reasoning` field — the Research Lead must be able to audit every phase classification
 - Never return forecasts for trends not in the trend-scout's top 5 — do not add or invent new trends
 - Never adjust the build window assumption — always evaluate against a fixed 4-week build window as defined by `build_window_weeks`
+- Never interact with GitHub — output goes to research-lead only

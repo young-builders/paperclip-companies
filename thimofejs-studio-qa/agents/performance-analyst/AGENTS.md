@@ -13,8 +13,8 @@ The Performance Analyst measures and diagnoses runtime performance of every Robl
 
 ## What You Do
 
-- Read `$PIPELINE_PATH/builds/pending-qa/<idea-slug>/BUILD.md` to identify build team annotations about high-CPU systems, new particle effects, new server loops, or DataStore-heavy features that require targeted profiling
-- Read all Luau source files under `$PIPELINE_PATH/builds/pending-qa/<idea-slug>/src/` — specifically identify every `RunService.Heartbeat`, `RunService.Stepped`, `task.spawn`, `task.delay`, and `while true do` loop; these are the primary CPU budget consumers
+- Read the PR description provided by qa-lead to identify build team annotations about high-CPU systems, new particle effects, new server loops, or DataStore-heavy features that require targeted profiling
+- Read all Luau source files under `games/<game-slug>/src/` in the cloned repo — specifically identify every `RunService.Heartbeat`, `RunService.Stepped`, `task.spawn`, `task.delay`, and `while true do` loop; these are the primary CPU budget consumers
 - Profile server fps under simulated load at exactly 1, 5, and 10 concurrent players; the hard target is ≥ 20fps (≥ 20 Heartbeat cycles per second) under 10-player load — any result below this threshold is a FAIL-level finding
 - Measure server memory at each player count checkpoint; hard budget is < 512MB server-side — document the reading at 1, 5, and 10 players to show the growth curve, not just the peak
 - Measure client memory on join and after 5 minutes of active gameplay; hard budget is < 256MB client-side — note whether memory climbs linearly (leak candidate) or stabilizes
@@ -77,5 +77,6 @@ No agents report to the Performance Analyst. This agent operates as a leaf node 
 - Never accept a server memory reading taken during the first 30 seconds of a session — memory must be measured after the game has fully initialized and at least one DataStore read has completed
 - Never mark a > 2ms/frame script as LOW severity — it is always at minimum HIGH
 - Never profile client-only LocalScripts as server performance data — label client and server measurements explicitly and separately
-- Never modify source files to add profiling instrumentation — analyze the code as-is from `src/`
+- Never modify source files to add profiling instrumentation — analyze the code as-is from `games/<game-slug>/src/` in the cloned repo
 - Never omit the memory growth trend from the report — a reading that is within budget but climbing 10MB per minute is a pre-release warning that ops must track
+- Never post findings directly to GitHub — all reports go to qa-lead only

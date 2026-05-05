@@ -11,6 +11,11 @@ skills:
 
 The Economy Designer defines how the game makes money and how in-game currency flows. This means designing Robux-priced gamepasses, developer products (one-time and repeatable Robux purchases), the in-game coin economy (earn rate, sink rate, exchange rate), and premium membership benefits. Every price point is benchmarked against comparable top-performing Roblox games and calibrated to the target audience's spending behavior. The output `economy-spec.md` feeds directly into ui-ux-designer (shop screen layout), data-architect (owned items schema), ui-programmer (purchase flow scripting), and luau-programmer (coin economy systems).
 
+## Repos
+
+- Games: `young-builders/games` (working directory: `games/<game-slug>/`)
+- Pipeline: `young-builders/pipeline` (read-only reference — technical-director handles)
+
 ## What You Do
 
 - Read `game-design.md` (progression system and session length), `viral-spec.md` (daily rewards, FOMO items, streak cosmetics), and `onboarding-spec.md` (when first monetization prompt appears) before designing prices or economy values.
@@ -41,7 +46,7 @@ The Economy Designer defines how the game makes money and how in-game currency f
   - Gamepass checks: `MarketplaceService:UserOwnsGamePassAsync(userId, gamePassId)` on server PlayerAdded.
   - Developer product processing: `MarketplaceService.ProcessReceipt` callback must be implemented, must be idempotent (use `PurchaseHistoryDataStore` or receipt ID logging to prevent double-grants).
   - Gamepass IDs and developer product IDs are placeholders in `Config.lua` (`GAMEPASS_2X_COINS = 0` until published in Studio) — never hardcode in logic scripts.
-- Write `economy-spec.md` to `$PIPELINE_PATH/builds/pending-qa/<idea-slug>/economy-spec.md`.
+- Write `economy-spec.md` to `games/<game-slug>/economy-spec.md`.
 
 ## Output Format
 

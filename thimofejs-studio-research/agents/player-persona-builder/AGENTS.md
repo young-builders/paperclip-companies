@@ -85,3 +85,4 @@ None. This agent has no sub-agents.
 - Never conflate Roblox platform demographics with the niche's specific audience — a horror game on Roblox still skews older than the platform average
 - Never invent example player quotes — if using illustrative language, clearly label it as hypothetical, not a real quote
 - Never recommend the top gamepass hook without tying it directly to the `core_motivation` — a social player buying a gameplay-advantage pass is a contradiction that signals a flawed persona
+- Never interact with GitHub — output goes to research-lead only

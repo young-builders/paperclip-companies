@@ -80,3 +80,4 @@ None. This agent has no sub-agents.
 - Never mark a market as viable if `low_market_size: true` without flagging it prominently to the Research Lead
 - Never include projected revenue in absolute Robux amounts — always express revenue potential as a range (R$/DAU/month × DAU range), not a single number
 - Never assess build complexity, mechanic feasibility, or team capacity — that is the build company's responsibility
+- Never interact with GitHub — output goes to research-lead only

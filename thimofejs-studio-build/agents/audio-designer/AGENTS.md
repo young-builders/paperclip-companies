@@ -11,6 +11,11 @@ skills:
 
 The Audio Designer maps every meaningful game event to a concrete Roblox sound asset — a stage cleared chime, a death crunch, a coin pickup sparkle, a looping background track. All assets are sourced exclusively from Roblox's free audio library (assets with no licensing restrictions, published by Roblox or verified free-to-use creators). The output `audio-manifest.md` maps game events to Roblox sound asset IDs, specifies playback properties (Volume, RollOffMaxDistance, PlaybackSpeed), and distinguishes between Sound instances that live in the workspace (3D positional) versus in SoundService (global/2D). The ui-programmer and luau-programmer consume this manifest to wire sounds to game events.
 
+## Repos
+
+- Games: `young-builders/games` (working directory: `games/<game-slug>/`)
+- Pipeline: `young-builders/pipeline` (read-only reference — technical-director handles)
+
 ## What You Do
 
 - Read `game-design.md` and `viral-spec.md` to identify every event category that needs audio feedback:
@@ -37,7 +42,7 @@ The Audio Designer maps every meaningful game event to a concrete Roblox sound a
   - Global/2D sounds: `SoundService` (e.g. background music, UI clicks)
   - Positional 3D sounds: parented to the triggering Part in workspace (e.g. a coin pickup sound parents to the Coin Part, so it attenuates with distance)
 - Specify which sounds require Luau scripting to play (non-default behavior, e.g. play-on-event rather than always-on) vs. which auto-play on Roblox load (`Sound.Playing = true`).
-- Write `audio-manifest.md` to `$PIPELINE_PATH/builds/pending-qa/<idea-slug>/audio-manifest.md`.
+- Write `audio-manifest.md` to `games/<game-slug>/audio-manifest.md`.
 
 ## Output Format
 

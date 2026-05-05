@@ -4,19 +4,19 @@ Gatekeeper. Reviews every idea before it reaches build. Nothing passes without a
 
 ## Pipeline Role
 
-**Input:** `$PIPELINE_PATH/ideas/pending/<idea-slug>.md`
+**Input:** Issues with label `idea/pending` in `young-builders/pipeline`
 **Output:**
-- Approved → moves file to `$PIPELINE_PATH/ideas/approved/<idea-slug>.md`
-- Rejected → moves file to `$PIPELINE_PATH/ideas/rejected/<idea-slug>.md` with rejection reason appended
+- Approved → relabels Issue to `idea/approved`, posts verdict as comment
+- Rejected → relabels Issue to `idea/rejected`, posts rejection reason as comment
 
 ## Workflow
 
 1. `tos-guard` checks idea against Roblox ToS — hard block if violation
 2. `sentiment-analyst` checks public sentiment around this game type
 3. `strategy-agent` evaluates strategic fit: market timing, differentiation, effort vs. reward
-4. `review-director` makes final GO / NO-GO decision, appends verdict, moves file
+4. `review-director` makes final GO / NO-GO decision, posts verdict comment, relabels Issue
 
-## Verdict Format (appended to idea file)
+## Verdict Comment Format (posted on the Issue)
 
 ```markdown
 ## Review Verdict
@@ -44,5 +44,9 @@ Gatekeeper. Reviews every idea before it reaches build. Nothing passes without a
 ## Rules
 
 - `tos-guard` veto = automatic NO-GO, no override
-- `review-director` is the only agent that moves files between folders
-- Rejected ideas get a full written reason — no silent drops
+- `review-director` is the only agent that relabels Issues and posts the verdict comment
+- Rejected ideas get a full written reason as a comment — no silent drops
+
+## Secrets Required
+
+- `GH_TOKEN` — GitHub token (repo + issues scope) for reading and relabeling Issues in young-builders/pipeline

@@ -8,18 +8,33 @@ agents:
       type: claude_local
       config:
         model: claude-opus-4-7
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: required
 
   producer:
     adapter:
       type: claude_local
       config:
         model: claude-opus-4-7
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: required
 
   learning-agent:
     adapter:
       type: claude_local
       config:
         model: claude-opus-4-7
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: required
 
 # ── SONNET (operations) ──────────────────────────────────────────────────────
 
@@ -30,6 +45,9 @@ agents:
         model: claude-sonnet-4-6
     inputs:
       env:
+        GH_TOKEN:
+          kind: secret
+          requirement: required
         ROBLOX_API_KEY:
           kind: secret
           requirement: required
@@ -169,6 +187,9 @@ agents:
         model: claude-sonnet-4-6
     inputs:
       env:
+        GH_TOKEN:
+          kind: secret
+          requirement: required
         ROBLOX_API_KEY:
           kind: secret
           requirement: required
