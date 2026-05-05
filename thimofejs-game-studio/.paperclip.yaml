@@ -1,4 +1,5 @@
 schema: paperclip/v1
+
 agents:
   ceo:
     adapter:
@@ -141,3 +142,31 @@ agents:
       type: claude_local
       config:
         model: claude-haiku-4-5-20251001
+
+routines:
+  pipeline-cycle:
+    agent: producer
+    triggers:
+      - kind: schedule
+        cron: "0 8 * * 1"
+        timezone: UTC
+    concurrencyPolicy: skip_if_active
+    catchUpPolicy: skip_missed
+
+  daily-kpi-check:
+    agent: kpi-tracker
+    triggers:
+      - kind: schedule
+        cron: "0 9 * * *"
+        timezone: UTC
+    concurrencyPolicy: skip_if_active
+    catchUpPolicy: skip_missed
+
+  heartbeat:
+    agent: ceo
+    triggers:
+      - kind: schedule
+        cron: "0 6 * * *"
+        timezone: UTC
+    concurrencyPolicy: skip_if_active
+    catchUpPolicy: skip_missed
