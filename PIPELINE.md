@@ -45,7 +45,10 @@ $PIPELINE_PATH/
 
 ## Setup
 
-1. Create shared pipeline directory: `mkdir -p $PIPELINE_PATH/{ideas/{pending,approved,rejected},builds/{pending-qa,passed,failed},releases/live}`
-2. Set `PIPELINE_PATH` in each company's environment
-3. Configure secrets per company (see each COMPANY.md)
-4. Start with `studio-research` — it is the only entry point
+Pipeline folder: `/Users/thimofejzapko/game-studio-pipeline` (already initialized)
+
+```bash
+export PIPELINE_PATH=/Users/thimofejzapko/game-studio-pipeline
+```
+
+Add to `~/.zshrc` to persist. Then configure secrets per company (see each COMPANY.md) and start with `studio-research`.
