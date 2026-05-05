@@ -48,7 +48,7 @@ agents:
         GH_TOKEN:
           kind: secret
           requirement: required
-        ROBLOX_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
           requirement: required
 
@@ -59,9 +59,9 @@ agents:
         model: claude-sonnet-4-6
     inputs:
       env:
-        ROBLOX_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
-          requirement: optional
+          requirement: required
 
   kpi-tracker:
     adapter:
@@ -70,7 +70,7 @@ agents:
         model: claude-sonnet-4-6
     inputs:
       env:
-        ROBLOX_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
           requirement: required
 
@@ -81,7 +81,7 @@ agents:
         model: claude-sonnet-4-6
     inputs:
       env:
-        ROBLOX_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
           requirement: required
 
@@ -95,7 +95,7 @@ agents:
         REPLICATE_API_KEY:
           kind: secret
           requirement: required
-        ROBLOX_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
           requirement: required
 
@@ -110,18 +110,33 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_OPS_KEY:
+          kind: secret
+          requirement: required
 
   monetization-optimizer:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_OPS_KEY:
+          kind: secret
+          requirement: required
 
   vip-server-specialist:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_OPS_KEY:
+          kind: secret
+          requirement: required
 
   premium-benefits-designer:
     adapter:
@@ -187,7 +202,7 @@ agents:
         GH_TOKEN:
           kind: secret
           requirement: required
-        ROBLOX_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
           requirement: required
 
@@ -210,7 +225,7 @@ agents:
         model: claude-sonnet-4-6
     inputs:
       env:
-        ROBLOX_GROUP_API_KEY:
+        ROBLOX_OPS_KEY:
           kind: secret
           requirement: required
         ROBLOX_GROUP_ID:

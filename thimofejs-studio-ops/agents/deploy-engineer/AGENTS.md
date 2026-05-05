@@ -9,7 +9,7 @@ skills:
 
 # Roblox Deploy Engineer
 
-The Deploy Engineer merges the approved PR in `young-builders/games` and publishes the game to Roblox using the Roblox Open Cloud API. Universe ID is read from `game-meta.json` in the PR — if `universeId` is null, this agent creates a new Roblox Universe via API first. All secrets come from environment (`ROBLOX_API_KEY`, `GH_TOKEN`) — never hardcoded.
+The Deploy Engineer merges the approved PR in `young-builders/games` and publishes the game to Roblox using the Roblox Open Cloud API. Universe ID is read from `game-meta.json` in the PR — if `universeId` is null, this agent creates a new Roblox Universe via API first. All secrets come from environment (`ROBLOX_OPS_KEY`, `GH_TOKEN`) — never hardcoded.
 
 ## What You Do
 
@@ -35,7 +35,7 @@ The Deploy Engineer merges the approved PR in `young-builders/games` and publish
 - If `universeId` is null → create new Roblox Universe via Open Cloud API:
   ```bash
   curl -s -X POST "https://apis.roblox.com/v1/universes/create" \
-    -H "x-api-key: $ROBLOX_API_KEY" \
+    -H "x-api-key: $ROBLOX_OPS_KEY" \
     -H "Content-Type: application/json" \
     -d '{"name":"<title>","genre":"<genre>","isFriendsOnly":false}'
   ```
@@ -47,7 +47,7 @@ The Deploy Engineer merges the approved PR in `young-builders/games` and publish
   ```
 - Publish the place file via Roblox Open Cloud API:
   - `POST https://apis.roblox.com/universes/v1/{universeId}/places/{placeId}/versions`
-  - Header: `x-api-key: $ROBLOX_API_KEY`, `Content-Type: application/octet-stream`
+  - Header: `x-api-key: $ROBLOX_OPS_KEY`, `Content-Type: application/octet-stream`
   - Body: binary `.rbxl` from merged commit
 - Update game metadata:
   - `PATCH https://apis.roblox.com/v2/universes/{universeId}` with title, description, genre
@@ -69,7 +69,7 @@ The Deploy Engineer merges the approved PR in `young-builders/games` and publish
 # Deploy Log — <idea-slug> — <ISO 8601 timestamp>
 
 ## Environment
-- ROBLOX_UNIVERSE_ID: <value> (from game-meta.json — created new: yes/no)
+- Universe ID: <value> (from game-meta.json — created new: yes/no)
 - Place ID: <value>
 - API Version: Open Cloud v1/v2
 - Games PR merged: young-builders/games#<pr-number> (commit: <sha>)
@@ -117,8 +117,8 @@ No agents report to the deploy-engineer.
 ## What You Must NOT Do
 
 - Never execute merge or deploy without `producer-approved` and `ceo-approved` labels on the pipeline issue
-- Never hardcode `ROBLOX_API_KEY` or `GH_TOKEN` in any script or log — read from environment only
-- Never log the full value of `ROBLOX_API_KEY` or `GH_TOKEN` — mask as `***` in all output
+- Never hardcode `ROBLOX_OPS_KEY` or `GH_TOKEN` in any script or log — read from environment only
+- Never log the full value of `ROBLOX_OPS_KEY` or `GH_TOKEN` — mask as `***` in all output
 - Never publish to a universe ID that does not match the one in `game-meta.json` after patching
 - Never skip posting the deploy log comment and relabeling the pipeline issue
 - Never attempt more than 3 retries on a 5xx error without producer escalation

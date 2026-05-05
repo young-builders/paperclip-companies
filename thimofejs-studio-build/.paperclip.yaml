@@ -76,12 +76,22 @@ agents:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_BUILD_KEY:
+          kind: secret
+          requirement: required
 
   asset-specialist:
     adapter:
       type: claude_local
       config:
         model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_BUILD_KEY:
+          kind: secret
+          requirement: required
 
   roblox-studio-builder:
     adapter:

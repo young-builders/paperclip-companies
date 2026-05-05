@@ -78,3 +78,4 @@ young-builders/games/
 ## Secrets Required
 
 - `GH_TOKEN` — GitHub token (repo + issues + pull_requests scope) for reading Issues in young-builders/pipeline and opening PRs in young-builders/games
+- `ROBLOX_BUILD_KEY` — Roblox Open Cloud key with `assets:write` permission — used by audio-designer and asset-specialist to upload custom audio and models

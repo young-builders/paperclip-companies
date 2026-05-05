@@ -34,7 +34,7 @@ The Thumbnail Designer generates Roblox game icons and promotional thumbnails us
 - Upload to Roblox via Open Cloud:
   - Icon: `POST https://apis.roblox.com/assets/v1/assets` with `assetType=ImageAsset`
   - Thumbnails: same endpoint, tag as `ThumbnailImage`
-  - Auth: `x-api-key: $ROBLOX_API_KEY`
+  - Auth: `x-api-key: $ROBLOX_OPS_KEY`
 - Report Roblox asset IDs to producer by commenting on the pipeline issue:
   ```bash
   gh issue comment <issue-number> --repo young-builders/pipeline \
@@ -91,7 +91,7 @@ No agents report to the thumbnail-designer.
 
 - Never upload images to Roblox without producer approval — the producer checklist must confirm thumbnails before deploy
 - Never use dark, muddy, or low-contrast images — if Replicate returns an image that fails the contrast check, regenerate with an adjusted prompt
-- Never hardcode `REPLICATE_API_KEY` or `ROBLOX_API_KEY` in any script — read from environment only
+- Never hardcode `REPLICATE_API_KEY` or `ROBLOX_OPS_KEY` in any script — read from environment only
 - Never log API key values — mask as `***` in all output
 - Never produce only one thumbnail variant — a minimum of two 1920×1080 variants per game is required for A/B testing by the a-b-test-coordinator
 - Never skip posting the asset ID report as a pipeline issue comment — the producer's checklist requires it before green-light

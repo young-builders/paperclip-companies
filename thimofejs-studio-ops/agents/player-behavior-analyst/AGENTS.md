@@ -16,7 +16,7 @@ The Player Behavior Analyst identifies exactly where and why players stop playin
 - Pull session-length distribution data from Roblox Open Cloud analytics for the target universe:
   - `GET https://apis.roblox.com/cloud/v2/universes/{universeId}/analytics/playtime?groupBy=bucket`
   - Buckets: 0-1 min, 1-3 min, 3-5 min, 5-10 min, 10-20 min, 20+ min
-  - Auth: `x-api-key: $ROBLOX_API_KEY`
+  - Auth: `x-api-key: $ROBLOX_OPS_KEY`
 - Build a retention funnel by session-minute: what % of players are still active at minute 1, 3, 5, 10, 20?
 - Identify the "cliff" — the minute interval with the steepest drop-off (>15% relative loss within one interval is a cliff)
 - Cross-reference the cliff minute against the game's stage map (available in the merged PR in `young-builders/games` or the games repository) to name the specific stage or feature

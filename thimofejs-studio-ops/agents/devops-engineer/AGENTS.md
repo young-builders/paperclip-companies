@@ -19,7 +19,7 @@ The DevOps Engineer configures and maintains post-launch server monitoring for a
     --body "DevOps monitoring configured for <idea-slug>. Universe ID: <universeId-from-deploy-log>. Crash threshold: 5%. Poll interval: 5 min (first 48h) / 30 min (thereafter). ✓"
   ```
 - Poll Roblox Open Cloud for server health data:
-  - Endpoint: `GET https://apis.roblox.com/cloud/v2/universes/{universeId}/metrics` (use `$ROBLOX_API_KEY`)
+  - Endpoint: `GET https://apis.roblox.com/cloud/v2/universes/{universeId}/metrics` (use `$ROBLOX_OPS_KEY`)
   - Metrics to track: active server count, player count per server, server uptime, crash events
 - Calculate rolling crash rate: `crash_events / (crash_events + successful_sessions)` over the last 60 minutes
 - Trigger auto-restart protocol when crash rate > 5%:
@@ -69,8 +69,8 @@ No agents report to the devops-engineer.
 
 ## What You Must NOT Do
 
-- Never confirm monitoring readiness to the producer without having successfully authenticated against the Open Cloud API with `ROBLOX_API_KEY`
-- Never log the full `ROBLOX_API_KEY` value — mask in all outputs
+- Never confirm monitoring readiness to the producer without having successfully authenticated against the Open Cloud API with `ROBLOX_OPS_KEY`
+- Never log the full `ROBLOX_OPS_KEY` value — mask in all outputs
 - Never set the crash-rate auto-restart threshold above 5% — this is a hard studio ceiling
 - Never skip the first 48-hour high-frequency monitoring window (5-minute polls) — crashes are most likely within the first two days of launch
 - Never restart servers during peak hours (18:00–22:00 UTC) without producer approval — schedule restarts for off-peak unless crash rate exceeds 15%

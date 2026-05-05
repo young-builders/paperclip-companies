@@ -104,4 +104,4 @@ No agents report to the content-creator.
 - Never post launch announcements before the deploy-engineer has confirmed a successful deploy (deploy-log.md present)
 - Never write more than 3 hashtags on a Twitter/X post — over-tagging reduces reach on that platform
 - Never write a TikTok script longer than 30 seconds — TikTok's algorithm strongly favors sub-30-second completion rates for gaming content
-- Never publish content that reveals ROBLOX_API_KEY, internal pipeline paths, or build system details
+- Never publish content that reveals ROBLOX_OPS_KEY, internal pipeline paths, or build system details

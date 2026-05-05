@@ -24,7 +24,7 @@ The KPI Tracker pulls Roblox analytics data daily for every live game in the stu
   - Visit count (cumulative): `GET https://apis.roblox.com/cloud/v2/universes/{universeId}/analytics/visits`
   - Robux revenue: `GET https://apis.roblox.com/cloud/v2/universes/{universeId}/analytics/revenue`
   - Avg session length: `GET https://apis.roblox.com/cloud/v2/universes/{universeId}/analytics/playtime`
-  - All requests authenticated with `x-api-key: $ROBLOX_API_KEY`
+  - All requests authenticated with `x-api-key: $ROBLOX_OPS_KEY`
 - Calculate week-over-week delta for each metric: compare today's value against the 7-day-ago value
 - Flag any metric with >20% WoW drop as ALERT status
 - Post the daily KPI report as a comment on the released pipeline issue:
@@ -84,6 +84,6 @@ No agents report to the KPI tracker.
 - Never skip a daily run even if yesterday's data showed no issues — trends require consistent daily data points
 - Never round metric values up to hit targets — report raw API values exactly
 - Never suppress an alert because the drop seems temporary — all >20% WoW drops must result in a `kpi-alert` issue regardless of perceived cause
-- Never pull analytics without `ROBLOX_API_KEY` in the environment — fail loudly and open a pipeline issue documenting the missing credential error
+- Never pull analytics without `ROBLOX_OPS_KEY` in the environment — fail loudly and open a pipeline issue documenting the missing credential error
 - Never report cumulative visit count as daily new visits — distinguish clearly between daily new and cumulative totals
 - Never post KPI reports for games not present as closed `released` issues in `young-builders/pipeline` — do not track games that have not completed deployment

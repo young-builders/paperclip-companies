@@ -93,4 +93,4 @@ The CEO is the top-level decision-maker for thimofejs-studio-ops, the executive 
 - Never approve a launch without a confirmed producer sign-off on the pre-launch checklist
 - Never set KPI targets below the studio minimums (10,000 visits, 5,000 Robux, 20% Day-7 retention) without a documented exception rationale posted on the pipeline issue
 - Never make portfolio sunset decisions based on fewer than 14 days of post-launch data
-- Never share `ROBLOX_API_KEY`, `REPLICATE_API_KEY`, `GH_TOKEN`, or any secret directly in issue comments or decision documents
+- Never share `ROBLOX_OPS_KEY`, `REPLICATE_API_KEY`, `GH_TOKEN`, or any secret directly in issue comments or decision documents
