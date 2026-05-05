@@ -2,7 +2,7 @@
 name: Autonomous Roblox Trend Engine
 description: Implement and run the fully autonomous pipeline — trend detection to live deployment — until 3 consecutive games hit both KPI thresholds
 slug: autonomous-trend-engine
-owner: producer
+assignee: producer
 ---
 
 Build and operate the fully autonomous Roblox Trend Engine. The pipeline must run from trend detection to deployed live game with zero human intervention. Success is defined as 3 consecutive games hitting both KPIs (≥10,000 Visits AND ≥5,000 Robux) within 30 days of deploy.

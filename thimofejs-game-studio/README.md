@@ -26,18 +26,23 @@ Go to your Paperclip company settings and add these secrets:
 | `REDDIT_CLIENT_SECRET` | same as above |
 | `YOUTUBE_API_KEY` | console.cloud.google.com → YouTube Data API v3 |
 | `GH_TOKEN` | github.com/settings/tokens (optional, for devops-engineer) |
+| `REPLICATE_API_KEY` | replicate.com/account/api-tokens (for thumbnail-designer) |
 
-### 2. Configure Routines (Scheduled Runs)
+### 2. Routines (Auto-configured)
 
-After import, set up three routines via Paperclip:
+Routines are pre-configured in `.paperclip.yaml` — no manual setup needed after import:
 
 | Routine | Agent | Cron | What it does |
 |---------|-------|------|-------------|
+| `heartbeat` | `ceo` | `0 6 * * *` | Daily system health check |
 | `pipeline-cycle` | `producer` | `0 8 * * 1` | Full trend→deploy pipeline every Monday |
 | `daily-kpi-check` | `kpi-tracker` | `0 9 * * *` | Daily KPI snapshot for active games |
-| `heartbeat` | `ceo` | `0 6 * * *` | Daily system health check |
 
-### 3. Run Paperclip Server
+### 3. Configure Roblox Groups
+
+Set up 3–5 Roblox Groups for risk isolation (see [Multi-Group Setup](COMPANY.md#multi-group-account-setup) in COMPANY.md).
+
+### 4. Run Paperclip Server
 
 ```bash
 npx paperclipai run
@@ -72,14 +77,14 @@ trend-scout → strategy-agent → game-designer → roblox-studio-builder
 | Network Programmer | RemoteEvents/replication | Sonnet |
 | UI Programmer | ScreenGui/BillboardGui | Sonnet |
 | Economy Designer | Gamepasses/Dev Products | Sonnet |
-| Asset Specialist | Marketplace licensing | Haiku |
+| Asset Specialist | Marketplace licensing | Sonnet |
 | Obby Designer | Level design | Sonnet |
 | World Builder | 3D environment | Sonnet |
-| Performance Analyst | Heartbeat/FPS profiling | Haiku |
+| Performance Analyst | Heartbeat/FPS profiling | Sonnet |
 | QA Lead | Test strategy + sign-off | Sonnet |
-| QA Tester | Bug execution + verification | Haiku |
-| DevOps Engineer | Rojo/CI toolchain | Haiku |
-| Community Manager | Group shouts + feedback | Haiku |
+| QA Tester | Bug execution + verification | Sonnet |
+| DevOps Engineer | Rojo/CI toolchain | Sonnet |
+| Community Manager | Group shouts + feedback | Sonnet |
 
 ## Hard Constraints
 

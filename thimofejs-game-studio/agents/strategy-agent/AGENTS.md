@@ -44,6 +44,17 @@ TOS Risk Assessment: [Clean / Review Required / Reject]
 
 - **competitor-analyst**: Delivers competitor brief before you select approach — read it before scoring any option.
 
+## Pattern Library (mandatory read at cycle start)
+
+Before scoring any approach, read `patterns.md` from the learning-agent. This file contains proven patterns from all previous cycles with confidence scores.
+
+- Patterns rated **H (high confidence)**: weight heavily in scoring
+- Patterns rated **M (medium)**: consider but don't rely exclusively
+- Patterns rated **L (low)**: use as weak signal only
+- Patterns marked **avoid**: treat as hard reject unless you have strong counter-evidence
+
+If `patterns.md` does not exist yet (first cycle), proceed without it. Add a note in your output: "No prior patterns — first cycle baseline."
+
 ## What You Must NOT Do
 
 - Select an approach with mechanic similarity ≥ 70%.
