@@ -1,0 +1,143 @@
+schema: paperclip/v1
+agents:
+  ceo:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-4-7
+  technical-director:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-4-7
+  producer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-4-7
+  trend-scout:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  strategy-agent:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  game-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  lead-luau-programmer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  roblox-studio-builder:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  tos-guard:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  deploy-engineer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_API_KEY:
+          kind: secret
+          requirement: required
+        ROBLOX_UNIVERSE_ID:
+          kind: secret
+          requirement: required
+  kpi-tracker:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    inputs:
+      env:
+        ROBLOX_API_KEY:
+          kind: secret
+          requirement: required
+  learning-agent:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  luau-programmer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  network-programmer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  ui-programmer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  economy-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  asset-specialist:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5-20251001
+  obby-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  world-builder:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  performance-analyst:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5-20251001
+  qa-lead:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  qa-tester:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5-20251001
+  devops-engineer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5-20251001
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+        ROBLOX_API_KEY:
+          kind: secret
+          requirement: optional
+  community-manager:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5-20251001
